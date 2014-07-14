@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F966E674197363D900B4204E /* background-music-aac.caf in Resources */ = {isa = PBXBuildFile; fileRef = F966E672197362B700B4204E /* background-music-aac.caf */; };
+		F966E675197363D900B4204E /* pew-pew-lei.caf in Resources */ = {isa = PBXBuildFile; fileRef = F966E673197362B700B4204E /* pew-pew-lei.caf */; };
+		F966E6781973642E00B4204E /* GameOverScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F966E6771973642E00B4204E /* GameOverScene.m */; };
 		F97C0A8E1967C16A00D9A448 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F97C0A8D1967C16A00D9A448 /* Foundation.framework */; };
 		F97C0A901967C16A00D9A448 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F97C0A8F1967C16A00D9A448 /* CoreGraphics.framework */; };
 		F97C0A921967C16A00D9A448 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F97C0A911967C16A00D9A448 /* UIKit.framework */; };
@@ -43,6 +46,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F966E672197362B700B4204E /* background-music-aac.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "background-music-aac.caf"; sourceTree = "<group>"; };
+		F966E673197362B700B4204E /* pew-pew-lei.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "pew-pew-lei.caf"; sourceTree = "<group>"; };
+		F966E6761973642E00B4204E /* GameOverScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverScene.h; sourceTree = "<group>"; };
+		F966E6771973642E00B4204E /* GameOverScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverScene.m; sourceTree = "<group>"; };
 		F97C0A8A1967C16A00D9A448 /* SpriteKitSimpleGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpriteKitSimpleGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F97C0A8D1967C16A00D9A448 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F97C0A8F1967C16A00D9A448 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -133,6 +140,8 @@
 		F97C0A951967C16A00D9A448 /* SpriteKitSimpleGame */ = {
 			isa = PBXGroup;
 			children = (
+				F966E672197362B700B4204E /* background-music-aac.caf */,
+				F966E673197362B700B4204E /* pew-pew-lei.caf */,
 				F9B8AEFE197227AE00274A62 /* monster.png */,
 				F9B8AEFF197227AE00274A62 /* monster@2x.png */,
 				F9B8AF00197227AE00274A62 /* player.png */,
@@ -146,6 +155,8 @@
 				F97C0AA51967C16A00D9A448 /* ViewController.m */,
 				F97C0AA71967C16A00D9A448 /* MyScene.h */,
 				F97C0AA81967C16A00D9A448 /* MyScene.m */,
+				F966E6761973642E00B4204E /* GameOverScene.h */,
+				F966E6771973642E00B4204E /* GameOverScene.m */,
 				F97C0AAA1967C16A00D9A448 /* Spaceship.png */,
 				F97C0AAC1967C16A00D9A448 /* Images.xcassets */,
 				F97C0A961967C16A00D9A448 /* Supporting Files */,
@@ -263,11 +274,13 @@
 				F9B8AF05197227AE00274A62 /* monster@2x.png in Resources */,
 				F97C0AAD1967C16A00D9A448 /* Images.xcassets in Resources */,
 				F9B8AF08197227AE00274A62 /* projectile.png in Resources */,
+				F966E674197363D900B4204E /* background-music-aac.caf in Resources */,
 				F97C0AAB1967C16A00D9A448 /* Spaceship.png in Resources */,
 				F9B8AF04197227AE00274A62 /* monster.png in Resources */,
 				F97C0AA31967C16A00D9A448 /* Main.storyboard in Resources */,
 				F9B8AF07197227AE00274A62 /* player@2x.png in Resources */,
 				F9B8AF09197227AE00274A62 /* projectile@2x.png in Resources */,
+				F966E675197363D900B4204E /* pew-pew-lei.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +299,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F966E6781973642E00B4204E /* GameOverScene.m in Sources */,
 				F97C0AA91967C16A00D9A448 /* MyScene.m in Sources */,
 				F97C0AA61967C16A00D9A448 /* ViewController.m in Sources */,
 				F97C0AA01967C16A00D9A448 /* AppDelegate.m in Sources */,
