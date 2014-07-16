@@ -9,6 +9,13 @@
 import SpriteKit
 
 class GameScene: SKScene {
+    var level: Level!
+    
+    let TileWidth: CGFloat = 32.0
+    let TileHeight: CGFloat = 36.0
+    
+    let gameLayer = SKNode()
+    let cookieslayer = SKNode()
     
     init(size: CGSize) {
         super.init(size: size)
@@ -17,5 +24,13 @@ class GameScene: SKScene {
         
         let background = SKSpriteNode(imageNamed: "Background")
         addChild(background)
+        
+        addChild(gameLayer)
+        
+        let layerPosition = CGPoint(x: -TileWidth * CGFloat(NumColumns) / 2, y: -TileHeight * CGFloat(NumRows) / 2)
+        cookieslayer.position = layerPosition
+        gameLayer.addChild(cookieslayer)
     }
+    
+    
 }
