@@ -18,6 +18,11 @@
 		F9C4A50B1974A19300CDCEDC /* Sprites.atlas in Resources */ = {isa = PBXBuildFile; fileRef = F9C4A50A1974A19300CDCEDC /* Sprites.atlas */; };
 		F9C4A50D1974A58E00CDCEDC /* Cookie.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C4A50C1974A58E00CDCEDC /* Cookie.swift */; };
 		F9C4A50F1974A91300CDCEDC /* Array2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C4A50E1974A91300CDCEDC /* Array2D.swift */; };
+		F9D3722A197D4C8800FA488E /* Level_0.json in Resources */ = {isa = PBXBuildFile; fileRef = F9D37225197D4C8800FA488E /* Level_0.json */; };
+		F9D3722B197D4C8800FA488E /* Level_1.json in Resources */ = {isa = PBXBuildFile; fileRef = F9D37226197D4C8800FA488E /* Level_1.json */; };
+		F9D3722C197D4C8800FA488E /* Level_2.json in Resources */ = {isa = PBXBuildFile; fileRef = F9D37227197D4C8800FA488E /* Level_2.json */; };
+		F9D3722D197D4C8800FA488E /* Level_3.json in Resources */ = {isa = PBXBuildFile; fileRef = F9D37228197D4C8800FA488E /* Level_3.json */; };
+		F9D3722E197D4C8800FA488E /* Level_4.json in Resources */ = {isa = PBXBuildFile; fileRef = F9D37229197D4C8800FA488E /* Level_4.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +51,11 @@
 		F9C4A50A1974A19300CDCEDC /* Sprites.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Sprites.atlas; sourceTree = "<group>"; };
 		F9C4A50C1974A58E00CDCEDC /* Cookie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cookie.swift; sourceTree = "<group>"; };
 		F9C4A50E1974A91300CDCEDC /* Array2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array2D.swift; sourceTree = "<group>"; };
+		F9D37225197D4C8800FA488E /* Level_0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_0.json; sourceTree = "<group>"; };
+		F9D37226197D4C8800FA488E /* Level_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_1.json; sourceTree = "<group>"; };
+		F9D37227197D4C8800FA488E /* Level_2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_2.json; sourceTree = "<group>"; };
+		F9D37228197D4C8800FA488E /* Level_3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_3.json; sourceTree = "<group>"; };
+		F9D37229197D4C8800FA488E /* Level_4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_4.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +97,7 @@
 		F9C4A4E61974A11D00CDCEDC /* CookieCrunch */ = {
 			isa = PBXGroup;
 			children = (
+				F9D37224197D4C8800FA488E /* Levels */,
 				F9C4A4E91974A11D00CDCEDC /* AppDelegate.swift */,
 				F9C4A4ED1974A11D00CDCEDC /* GameScene.swift */,
 				F9C4A4EF1974A11D00CDCEDC /* GameViewController.swift */,
@@ -125,6 +136,18 @@
 				F9C4A4FF1974A11E00CDCEDC /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F9D37224197D4C8800FA488E /* Levels */ = {
+			isa = PBXGroup;
+			children = (
+				F9D37225197D4C8800FA488E /* Level_0.json */,
+				F9D37226197D4C8800FA488E /* Level_1.json */,
+				F9D37227197D4C8800FA488E /* Level_2.json */,
+				F9D37228197D4C8800FA488E /* Level_3.json */,
+				F9D37229197D4C8800FA488E /* Level_4.json */,
+			);
+			path = Levels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,8 +231,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9C4A4F51974A11E00CDCEDC /* Images.xcassets in Resources */,
+				F9D3722C197D4C8800FA488E /* Level_2.json in Resources */,
+				F9D3722D197D4C8800FA488E /* Level_3.json in Resources */,
+				F9D3722B197D4C8800FA488E /* Level_1.json in Resources */,
 				F9C4A50B1974A19300CDCEDC /* Sprites.atlas in Resources */,
 				F9C4A4F31974A11E00CDCEDC /* Main.storyboard in Resources */,
+				F9D3722A197D4C8800FA488E /* Level_0.json in Resources */,
+				F9D3722E197D4C8800FA488E /* Level_4.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
