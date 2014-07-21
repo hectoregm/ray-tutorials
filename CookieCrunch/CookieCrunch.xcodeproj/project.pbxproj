@@ -23,6 +23,8 @@
 		F9D3722C197D4C8800FA488E /* Level_2.json in Resources */ = {isa = PBXBuildFile; fileRef = F9D37227197D4C8800FA488E /* Level_2.json */; };
 		F9D3722D197D4C8800FA488E /* Level_3.json in Resources */ = {isa = PBXBuildFile; fileRef = F9D37228197D4C8800FA488E /* Level_3.json */; };
 		F9D3722E197D4C8800FA488E /* Level_4.json in Resources */ = {isa = PBXBuildFile; fileRef = F9D37229197D4C8800FA488E /* Level_4.json */; };
+		F9D37230197D4CFE00FA488E /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D3722F197D4CFE00FA488E /* Tile.swift */; };
+		F9D37233197D4DF100FA488E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D37232197D4DF100FA488E /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,8 @@
 		F9D37227197D4C8800FA488E /* Level_2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_2.json; sourceTree = "<group>"; };
 		F9D37228197D4C8800FA488E /* Level_3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_3.json; sourceTree = "<group>"; };
 		F9D37229197D4C8800FA488E /* Level_4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_4.json; sourceTree = "<group>"; };
+		F9D3722F197D4CFE00FA488E /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
+		F9D37232197D4DF100FA488E /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,15 +101,11 @@
 		F9C4A4E61974A11D00CDCEDC /* CookieCrunch */ = {
 			isa = PBXGroup;
 			children = (
+				F9D37231197D4D1100FA488E /* Model */,
 				F9D37224197D4C8800FA488E /* Levels */,
-				F9C4A4E91974A11D00CDCEDC /* AppDelegate.swift */,
 				F9C4A4ED1974A11D00CDCEDC /* GameScene.swift */,
 				F9C4A4EF1974A11D00CDCEDC /* GameViewController.swift */,
 				F9C4A4F11974A11E00CDCEDC /* Main.storyboard */,
-				F9C4A50C1974A58E00CDCEDC /* Cookie.swift */,
-				F9C4A50E1974A91300CDCEDC /* Array2D.swift */,
-				F986634C19760C65001021CB /* Set.swift */,
-				F986634E197610C7001021CB /* Level.swift */,
 				F9C4A4F41974A11E00CDCEDC /* Images.xcassets */,
 				F9C4A50A1974A19300CDCEDC /* Sprites.atlas */,
 				F9C4A4E71974A11D00CDCEDC /* Supporting Files */,
@@ -116,6 +116,7 @@
 		F9C4A4E71974A11D00CDCEDC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F9C4A4E91974A11D00CDCEDC /* AppDelegate.swift */,
 				F9C4A4E81974A11D00CDCEDC /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -148,6 +149,19 @@
 				F9D37229197D4C8800FA488E /* Level_4.json */,
 			);
 			path = Levels;
+			sourceTree = "<group>";
+		};
+		F9D37231197D4D1100FA488E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F9D37232197D4DF100FA488E /* Extensions.swift */,
+				F9C4A50E1974A91300CDCEDC /* Array2D.swift */,
+				F986634C19760C65001021CB /* Set.swift */,
+				F9C4A50C1974A58E00CDCEDC /* Cookie.swift */,
+				F9D3722F197D4CFE00FA488E /* Tile.swift */,
+				F986634E197610C7001021CB /* Level.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,8 +270,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9C4A4EE1974A11D00CDCEDC /* GameScene.swift in Sources */,
+				F9D37233197D4DF100FA488E /* Extensions.swift in Sources */,
 				F986634F197610C7001021CB /* Level.swift in Sources */,
 				F9C4A50D1974A58E00CDCEDC /* Cookie.swift in Sources */,
+				F9D37230197D4CFE00FA488E /* Tile.swift in Sources */,
 				F986634D19760C65001021CB /* Set.swift in Sources */,
 				F9C4A4F01974A11D00CDCEDC /* GameViewController.swift in Sources */,
 				F9C4A4EA1974A11D00CDCEDC /* AppDelegate.swift in Sources */,
