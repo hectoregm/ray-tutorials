@@ -9,6 +9,7 @@
 import SpriteKit
 
 class GameScene: SKScene {
+    var swipeHandler: ((Swap) -> ())?
     var level: Level!
     
     let TileWidth: CGFloat = 32.0
@@ -109,9 +110,30 @@ class GameScene: SKScene {
         
         if let toCookie = level.cookieAtColumn(toColumn, row: toRow) {
             if let fromCookie = level.cookieAtColumn(swipeFromColumn!, row: swipeFromRow!) {
-                println("*** swapping \(fromCookie) with \(toCookie)")
+                if let handler = swipeHandler {
+                    let swap = Swap(cookieA: fromCookie, cookieB: toCookie)
+                    handler(swap)
+                }
             }
         }
+    }
+    
+    func animateSwap(swap: Swap, completion: () -> ()) {
+        let spriteA = swap.cookieA.sprite!
+        let spriteB = swap.cookieB.sprite!
+        
+        spriteA.zPosition = 100
+        spriteB.zPosition = 90
+        
+        let duration: NSTimeInterval = 0.3
+        
+        let moveA = SKAction.moveTo(spriteB.position, duration: duration)
+        moveA.timingMode = .EaseOut
+        spriteA.runAction(moveA, completion: completion)
+        
+        let moveB = SKAction.moveTo(spriteA.position, duration: duration)
+        moveB.timingMode = .EaseOut
+        spriteB.runAction(moveB)
     }
     
     func addSpritesForCookies(cookies: Set<Cookie>) {
