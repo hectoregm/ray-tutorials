@@ -22,6 +22,8 @@ class GameScene: SKScene {
     var swipeFromColumn: Int?
     var swipeFromRow: Int?
     
+    var selectionSprite = SKSpriteNode()
+    
     init(size: CGSize) {
         super.init(size: size)
         
@@ -52,6 +54,7 @@ class GameScene: SKScene {
             if let cookie = level.cookieAtColumn(column, row: row) {
                 swipeFromColumn = column
                 swipeFromRow = row
+                showSelectionIndicatorForCookie(cookie)
             }
         }
     }
@@ -77,13 +80,16 @@ class GameScene: SKScene {
             
             if horzDelta != 0 || vertDelta != 0 {
                 trySwapHorizontal(horzDelta, vertical: vertDelta)
-                
+                hideSelectionIndicator()
                 swipeFromColumn = nil
             }
         }
     }
     
     override func touchesEnded(touches: NSSet!, withEvent event: UIEvent!) {
+        if selectionSprite.parent != nil && swipeFromColumn != nil {
+            hideSelectionIndicator()
+        }
         swipeFromColumn = nil
         swipeFromRow = nil
     }
@@ -160,5 +166,26 @@ class GameScene: SKScene {
                 }
             }
         }
+    }
+    
+    func showSelectionIndicatorForCookie(cookie: Cookie) {
+        if selectionSprite.parent != nil {
+            selectionSprite.removeFromParent()
+        }
+        
+        if let sprite = cookie.sprite {
+            let texture = SKTexture(imageNamed: cookie.cookieType.highlightedSpriteName)
+            selectionSprite.size = texture.size()
+            selectionSprite.runAction(SKAction.setTexture(texture))
+            
+            sprite.addChild(selectionSprite)
+            selectionSprite.alpha = 1.0
+        }
+    }
+    
+    func hideSelectionIndicator() {
+        selectionSprite.runAction(SKAction.sequence([
+            SKAction.fadeOutWithDuration(0.3),
+            SKAction.removeFromParent()]))
     }
 }
