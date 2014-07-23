@@ -169,6 +169,7 @@ class GameScene: SKScene {
     }
     
     func showSelectionIndicatorForCookie(cookie: Cookie) {
+        println("Selected cookie: \(cookie)")
         if selectionSprite.parent != nil {
             selectionSprite.removeFromParent()
         }

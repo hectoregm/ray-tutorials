@@ -59,7 +59,7 @@ class Cookie : Printable, Hashable {
     }
     
     var description: String {
-        return "type:\(cookieType) square:(\(column)\(row))"
+        return "type:\(cookieType) square:(\(column),\(row))"
     }
     
     init(column: Int, row: Int, cookieType: CookieType) {
