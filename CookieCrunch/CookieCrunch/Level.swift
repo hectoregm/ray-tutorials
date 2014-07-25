@@ -234,4 +234,57 @@ class Level {
             }
         }
     }
+    
+    func fillHoles() -> [[Cookie]] {
+        var columns = [[Cookie]]()
+        for column in 0..<NumColumns {
+            var array = [Cookie]()
+            for row in 0..<NumRows {
+                if tiles[column, row] && cookies[column, row] == nil {
+                    for lookup in (row + 1)..<NumRows {
+                        if let cookie = cookies[column, lookup] {
+                            cookies[column, lookup] = nil
+                            cookies[column, row] = cookie
+                            cookie.row = row
+                            array.append(cookie)
+                            
+                            break
+                        }
+                    }
+                }
+            }
+            if !array.isEmpty {
+                columns.append(array)
+            }
+        }
+        return columns
+    }
+    
+    func topUpCookies() -> [[Cookie]] {
+        var columns = [[Cookie]]()
+        var cookieType: CookieType = .Unknown
+        
+        for column in 0..<NumColumns {
+            var array = [Cookie]()
+            
+            for var row = NumRows - 1; row >= 0 && cookies[column, row] == nil; --row {
+                if tiles[column, row] {
+                    var newCookieType: CookieType
+                    do {
+                        newCookieType = CookieType.random()
+                    } while newCookieType == cookieType
+                    cookieType = newCookieType
+
+                    let cookie = Cookie(column: column, row: row, cookieType: cookieType)
+                    cookies[column, row] = cookie
+                    array.append(cookie)
+                }
+            }
+            if !array.isEmpty {
+                columns.append(array)
+            }
+        }
+        println("topUpCookies: \(columns)")
+        return columns
+    }
 }
