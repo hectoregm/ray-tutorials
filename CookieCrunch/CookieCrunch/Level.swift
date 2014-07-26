@@ -17,6 +17,7 @@ class Level {
     var possibleSwaps = Set<Swap>() // private
     let targetScore: Int!
     let maximumMoves: Int!
+    var comboMultiplier: Int = 0 // private
     
     init(filename: String) {
         if let dictionary = Dictionary<String, AnyObject>.loadJSONFromBundle(filename) {
@@ -295,8 +296,14 @@ class Level {
     }
     
     func calculateScores(chains: Set<Chain>) {
+        // 3-chain is 60 pts, 4-chain is 120, 5-chain is 180, and so on
         for chain in chains {
-            chain.score = 60 * (chain.length - 2)
+            chain.score = 60 * (chain.length - 2) * comboMultiplier
+            ++comboMultiplier
         }
+    }
+    
+    func resetComboMultiplier() {
+        comboMultiplier = 1
     }
 }
