@@ -15,6 +15,8 @@ class Level {
     let cookies = Array2D<Cookie>(columns: NumColumns, rows: NumRows) // private
     let tiles = Array2D<Tile>(columns: NumColumns, rows: NumRows) //private
     var possibleSwaps = Set<Swap>() // private
+    let targetScore: Int!
+    let maximumMoves: Int!
     
     init(filename: String) {
         if let dictionary = Dictionary<String, AnyObject>.loadJSONFromBundle(filename) {
@@ -28,6 +30,8 @@ class Level {
                         }
                     }
                 }
+                targetScore = (dictionary["targetScore"] as NSNumber).integerValue
+                maximumMoves = (dictionary["moves"] as NSNumber).integerValue
             }
         }
     }
@@ -223,6 +227,8 @@ class Level {
         removeCookies(horizontalChains)
         println("Vertical matches: \(verticalChains)")
         removeCookies(verticalChains)
+        calculateScores(horizontalChains)
+        calculateScores(verticalChains)
         
         return horizontalChains.unionSet(verticalChains)
     }
@@ -286,5 +292,11 @@ class Level {
         }
         println("topUpCookies: \(columns)")
         return columns
+    }
+    
+    func calculateScores(chains: Set<Chain>) {
+        for chain in chains {
+            chain.score = 60 * (chain.length - 2)
+        }
     }
 }
