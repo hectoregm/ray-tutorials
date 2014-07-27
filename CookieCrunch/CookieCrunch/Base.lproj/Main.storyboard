@@ -64,6 +64,18 @@
                                 <rect key="frame" x="0.0" y="209" width="320" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lP7-sQ-yop">
+                                <rect key="frame" x="109" y="512" width="100" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="20"/>
+                                <size key="titleShadowOffset" width="0.0" height="1"/>
+                                <state key="normal" title="Shuffle" backgroundImage="Button">
+                                    <color key="titleShadowColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="shuffleButtonPressed:" destination="LVB-YS-i5n" eventType="touchUpInside" id="G2U-RL-Mz7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -71,6 +83,7 @@
                         <outlet property="gameOverPanel" destination="0L2-Bz-XXC" id="fep-Mq-eMh"/>
                         <outlet property="movesLabel" destination="aaF-yb-Z3k" id="mzK-mH-c3Y"/>
                         <outlet property="scoreLabel" destination="PKl-Xr-dhk" id="wqc-8P-kTo"/>
+                        <outlet property="shuffeButton" destination="lP7-sQ-yop" id="bYO-kH-UMd"/>
                         <outlet property="targetLabel" destination="LXf-CY-lhH" id="pMf-lP-rrs"/>
                     </connections>
                 </viewController>
@@ -79,6 +92,9 @@
             <point key="canvasLocation" x="74.133333333333326" y="128.74666666666667"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Button" width="100" height="36"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

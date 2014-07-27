@@ -17,11 +17,17 @@ class GameViewController : UIViewController {
     var score: Int = 0
     
     @IBOutlet var gameOverPanel: UIImageView!
+    @IBOutlet var shuffeButton: UIButton!
     @IBOutlet var targetLabel: UILabel!
     @IBOutlet var movesLabel: UILabel!
     @IBOutlet var scoreLabel: UILabel!
     
     var tapGestureRecognizer: UITapGestureRecognizer!
+    
+    @IBAction func shuffleButtonPressed(AnyObject) {
+        shuffle()
+        decrementMoves()
+    }
     
     override func prefersStatusBarHidden() -> Bool {
         return true
@@ -41,6 +47,8 @@ class GameViewController : UIViewController {
         let skView = view as SKView
         skView.multipleTouchEnabled = false
         
+        shuffeButton.hidden = true
+        
         scene = GameScene(size: skView.bounds.size)
         scene.scaleMode = .AspectFill
         
@@ -59,7 +67,9 @@ class GameViewController : UIViewController {
         score = 0
         updateLabels()
         level.resetComboMultiplier()
-        scene.animateBeginGame() {}
+        scene.animateBeginGame() {
+            self.shuffeButton.hidden = false
+        }
         shuffle()
     }
     
@@ -135,6 +145,7 @@ class GameViewController : UIViewController {
     func showGameOver() {
         gameOverPanel.hidden = false
         scene.userInteractionEnabled = false
+        shuffeButton.hidden = true
         
         scene.animateGameOver() {
             self.tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "hideGameOver")
