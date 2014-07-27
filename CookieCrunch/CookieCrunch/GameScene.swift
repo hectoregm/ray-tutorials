@@ -14,7 +14,9 @@ class GameScene: SKScene {
     
     let TileWidth: CGFloat = 32.0
     let TileHeight: CGFloat = 36.0
-    
+
+    let cropLayer = SKCropNode()
+    let maskLayer = SKNode()
     let gameLayer = SKNode()
     let cookiesLayer = SKNode()
     let tilesLayer = SKNode()
@@ -23,7 +25,7 @@ class GameScene: SKScene {
     var swipeFromRow: Int?
     
     var selectionSprite = SKSpriteNode()
-    
+
     let swapSound = SKAction.playSoundFileNamed("Chomp.wav", waitForCompletion: false)
     let invalidSwapSound = SKAction.playSoundFileNamed("Error.wav", waitForCompletion: false)
     let matchSound = SKAction.playSoundFileNamed("Ka-Ching.wav", waitForCompletion: false)
@@ -45,7 +47,11 @@ class GameScene: SKScene {
         tilesLayer.position = layerPosition
         cookiesLayer.position = layerPosition
         gameLayer.addChild(tilesLayer)
-        gameLayer.addChild(cookiesLayer)
+        gameLayer.addChild(cropLayer)
+        
+        maskLayer.position = layerPosition
+        cropLayer.maskNode = maskLayer
+        cropLayer.addChild(cookiesLayer)
         
         swipeFromColumn = nil
         swipeFromRow = nil
@@ -181,8 +187,36 @@ class GameScene: SKScene {
         for row in 0..<NumRows {
             for column in 0..<NumColumns {
                 if let tile = level.tileAtColumn(column, row: row) {
-                    let tileNode = SKSpriteNode(imageNamed: "Tile")
+                    let tileNode = SKSpriteNode(imageNamed: "MaskTile")
                     tileNode.position = pointForColumn(column, row: row)
+                    maskLayer.addChild(tileNode)
+                }
+            }
+        }
+        
+        for row in 0...NumRows {
+            for column in 0...NumColumns {
+                let topLeft     = (column > 0) && (row < NumRows)
+                    && level.tileAtColumn(column - 1, row: row)
+                let bottomLeft  = (column > 0) && (row > 0)
+                    && level.tileAtColumn(column - 1, row: row - 1)
+                let topRight    = (column < NumColumns) && (row < NumRows)
+                    && level.tileAtColumn(column, row: row)
+                let bottomRight = (column < NumColumns) && (row > 0)
+                    && level.tileAtColumn(column, row: row - 1)
+                
+                // The tiles are named from 0 to 15, according to the bitmask that is
+                // made by combining these four values.
+                let value = Int(topLeft) | Int(topRight) << 1 | Int(bottomLeft) << 2 | Int(bottomRight) << 3
+                
+                // Values 0 (no tiles), 6 and 9 (two opposite tiles) are not drawn.
+                if value != 0 && value != 6 && value != 9 {
+                    let name = String(format: "Tile_%ld", value)
+                    let tileNode = SKSpriteNode(imageNamed: name)
+                    var point = pointForColumn(column, row: row)
+                    point.x -= TileWidth/2
+                    point.y -= TileHeight/2
+                    tileNode.position = point
                     tilesLayer.addChild(tileNode)
                 }
             }

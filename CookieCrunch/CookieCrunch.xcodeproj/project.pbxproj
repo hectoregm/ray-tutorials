@@ -33,6 +33,7 @@
 		F91ACB7F1982DA8B00192ADB /* SugarCookie@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F91ACB651982DA8B00192ADB /* SugarCookie@2x.png */; };
 		F91ACB801982DA8B00192ADB /* Tile.png in Resources */ = {isa = PBXBuildFile; fileRef = F91ACB661982DA8B00192ADB /* Tile.png */; };
 		F91ACB811982DA8B00192ADB /* Tile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F91ACB671982DA8B00192ADB /* Tile@2x.png */; };
+		F925D32219853DAE00FAAD96 /* Grid.atlas in Resources */ = {isa = PBXBuildFile; fileRef = F925D32119853DAE00FAAD96 /* Grid.atlas */; };
 		F986634D19760C65001021CB /* Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = F986634C19760C65001021CB /* Set.swift */; };
 		F986634F197610C7001021CB /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = F986634E197610C7001021CB /* Level.swift */; };
 		F9A24576197E977B00940605 /* Swap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A24575197E977B00940605 /* Swap.swift */; };
@@ -97,6 +98,7 @@
 		F91ACB651982DA8B00192ADB /* SugarCookie@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SugarCookie@2x.png"; sourceTree = "<group>"; };
 		F91ACB661982DA8B00192ADB /* Tile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tile.png; sourceTree = "<group>"; };
 		F91ACB671982DA8B00192ADB /* Tile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tile@2x.png"; sourceTree = "<group>"; };
+		F925D32119853DAE00FAAD96 /* Grid.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Grid.atlas; sourceTree = "<group>"; };
 		F986634C19760C65001021CB /* Set.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Set.swift; sourceTree = "<group>"; };
 		F986634E197610C7001021CB /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		F9A24575197E977B00940605 /* Swap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swap.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 		F9C4A4E61974A11D00CDCEDC /* CookieCrunch */ = {
 			isa = PBXGroup;
 			children = (
+				F925D32119853DAE00FAAD96 /* Grid.atlas */,
 				F91ACB4D1982DA8B00192ADB /* Sprite */,
 				F9F66A3219800D9E0016EC83 /* Sounds */,
 				F9D37231197D4D1100FA488E /* Model */,
@@ -362,6 +365,7 @@
 				F91ACB771982DA8B00192ADB /* Donut@2x.png in Resources */,
 				F91ACB731982DA8B00192ADB /* Danish@2x.png in Resources */,
 				F91ACB7D1982DA8B00192ADB /* SugarCookie-Highlighted@2x.png in Resources */,
+				F925D32219853DAE00FAAD96 /* Grid.atlas in Resources */,
 				F91ACB6C1982DA8B00192ADB /* Cupcake-Highlighted.png in Resources */,
 				F91ACB7B1982DA8B00192ADB /* Macaroon@2x.png in Resources */,
 				F9C4A4F51974A11E00CDCEDC /* Images.xcassets in Resources */,

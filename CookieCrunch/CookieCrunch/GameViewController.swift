@@ -8,6 +8,9 @@
 
 import UIKit
 import SpriteKit
+import AVFoundation
+
+var backgroundMusic: AVAudioPlayer!
 
 class GameViewController : UIViewController {
     var scene: GameScene!
@@ -59,6 +62,10 @@ class GameViewController : UIViewController {
         gameOverPanel.hidden = true
         
         skView.presentScene(scene)
+        let url = NSBundle.mainBundle().URLForResource("Mining by Moonlight", withExtension: "mp3")
+        backgroundMusic = AVAudioPlayer(contentsOfURL: url, error: nil)
+        backgroundMusic.numberOfLoops = -1
+        backgroundMusic.play()
         beginGame()
     }
     
