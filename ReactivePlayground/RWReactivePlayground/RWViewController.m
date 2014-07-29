@@ -8,6 +8,7 @@
 
 #import "RWViewController.h"
 #import "RWDummySignInService.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
 @interface RWViewController ()
 
@@ -37,6 +38,24 @@
   
   // initially hide the failure message
   self.signInFailureText.hidden = YES;
+  
+  RACSignal *validUsernameSignal = [self.usernameTextField.rac_textSignal
+                                    map:^id(NSString *text) {
+                                      return @([self isValidUsername:text]);
+                                    }];
+  RACSignal *validPasswordSignal = [self.passwordTextField.rac_textSignal
+                                    map:^id(NSString *text) {
+                                      return @([self isValidPassword:text]);
+                                    }];
+  RAC(self.passwordTextField, backgroundColor) = [validPasswordSignal
+                                                  map:^id(NSNumber *passwordValid) {
+                                                    return [passwordValid boolValue] ? [UIColor clearColor] : [UIColor yellowColor];
+                                                  }];
+
+  RAC(self.usernameTextField, backgroundColor) = [validUsernameSignal
+                                                  map:^id(NSNumber *usernameValid) {
+                                                    return [usernameValid boolValue] ? [UIColor clearColor] : [UIColor yellowColor];
+                                                  }];
 }
 
 - (BOOL)isValidUsername:(NSString *)username {
@@ -68,8 +87,6 @@
 // updates the enabled state and style of the text fields based on whether the current username
 // and password combo is valid
 - (void)updateUIState {
-  self.usernameTextField.backgroundColor = self.usernameIsValid ? [UIColor clearColor] : [UIColor yellowColor];
-  self.passwordTextField.backgroundColor = self.passwordIsValid ? [UIColor clearColor] : [UIColor yellowColor];
   self.signInButton.enabled = self.usernameIsValid && self.passwordIsValid;
 }
 
