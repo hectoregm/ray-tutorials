@@ -56,12 +56,22 @@
     self.signInButton.enabled = [signupActive boolValue];
   }];
   
-  [[[self.signInButton rac_signalForControlEvents:UIControlEventTouchUpInside]
-    map:^id(id x) {
+  [[[[self.signInButton
+      rac_signalForControlEvents:UIControlEventTouchUpInside]
+     doNext:^(id x) {
+       self.signInButton.enabled = NO;
+       self.signInFailureText.hidden = YES;
+     }]
+    flattenMap:^id(id x) {
       return [self signInSignal];
     }]
-   subscribeNext:^(id x) {
-     NSLog(@"Sign in result: %@", x);
+   subscribeNext:^(NSNumber *signedIn) {
+     self.signInButton.enabled = YES;
+     BOOL success = [signedIn boolValue];
+     self.signInFailureText.hidden = success;
+     if (success) {
+       [self performSegueWithIdentifier:@"signInSuccess" sender:self];
+     }
    }];
 }
 
