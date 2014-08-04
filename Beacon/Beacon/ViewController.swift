@@ -37,18 +37,18 @@ class ViewController: UIViewController, CBPeripheralManagerDelegate {
   }
   
   func peripheralManagerDidUpdateState(peripheral: CBPeripheralManager!) {
-    if peripheral.state == CBPeripheralManagerState.PoweredOn {
+    switch peripheral.state {
+    case .PoweredOn:
       // Bluetooth is on
       self.statusLabel.text = "Broadcasting..."
       self.peripheralManager.startAdvertising(self.myBeaconData)
-    } else if peripheral.state == CBPeripheralManagerState.PoweredOff {
+    case .PoweredOff:
       // Bluetooth is off
       self.statusLabel.text = "Stopped"
       self.peripheralManager .stopAdvertising()
-    } else if peripheralManager.state == CBPeripheralManagerState.Unsupported {
+    default:
       self.statusLabel.text = "Unsupported"
     }
   }
-
 }
 
