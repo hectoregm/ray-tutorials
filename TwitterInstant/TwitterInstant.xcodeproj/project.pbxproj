@@ -106,12 +106,7 @@
 		721C0016184D33AC0026A576 /* TwitterInstant */ = {
 			isa = PBXGroup;
 			children = (
-				72DE67BA1880522600356D9E /* background.jpg */,
-				721C001F184D33AC0026A576 /* RWAppDelegate.h */,
-				721C0020184D33AC0026A576 /* RWAppDelegate.m */,
 				721C0022184D33AC0026A576 /* Main.storyboard */,
-				721C0028184D33AC0026A576 /* Images.xcassets */,
-				721C0017184D33AC0026A576 /* Supporting Files */,
 				721C0045184D35E50026A576 /* RWSearchFormViewController.h */,
 				721C0046184D35E50026A576 /* RWSearchFormViewController.m */,
 				721C0048184DB32F0026A576 /* RWTableViewCell.h */,
@@ -120,6 +115,9 @@
 				721C004C184DB3950026A576 /* RWSearchResultsViewController.m */,
 				72DE67B21879E0C800356D9E /* RWTweet.h */,
 				72DE67B31879E0C800356D9E /* RWTweet.m */,
+				72DE67BA1880522600356D9E /* background.jpg */,
+				721C0028184D33AC0026A576 /* Images.xcassets */,
+				721C0017184D33AC0026A576 /* Supporting Files */,
 			);
 			path = TwitterInstant;
 			sourceTree = "<group>";
@@ -127,6 +125,8 @@
 		721C0017184D33AC0026A576 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				721C001F184D33AC0026A576 /* RWAppDelegate.h */,
+				721C0020184D33AC0026A576 /* RWAppDelegate.m */,
 				721C0018184D33AC0026A576 /* TwitterInstant-Info.plist */,
 				721C0019184D33AC0026A576 /* InfoPlist.strings */,
 				721C001C184D33AC0026A576 /* main.m */,
@@ -164,7 +164,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = RW;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Colin Eberhardt";
 			};
 			buildConfigurationList = 721C0008184D33AC0026A576 /* Build configuration list for PBXProject "TwitterInstant" */;
@@ -272,7 +272,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -312,7 +311,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
