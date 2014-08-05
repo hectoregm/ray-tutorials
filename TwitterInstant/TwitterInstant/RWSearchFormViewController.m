@@ -55,7 +55,7 @@ static NSString * const RWTwitterInstantDomain = @"TwitterInstant";
   self.accountStore = [[ACAccountStore alloc] init];
   self.twitterAccountType = [self.accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
   
-  [[[[self requestAccessToTwitterSignal]
+  [[[[[[self requestAccessToTwitterSignal]
     then:^RACSignal *{
       @strongify(self)
       return self.searchText.rac_textSignal;
@@ -64,6 +64,11 @@ static NSString * const RWTwitterInstantDomain = @"TwitterInstant";
       @strongify(self)
       return [self isValidSearchText:text];
     }]
+    flattenMap:^RACStream *(NSString *text) {
+      @strongify(self)
+      return [self signalForSearchWithText:text];
+    }]
+    deliverOn:[RACScheduler mainThreadScheduler]]
     subscribeNext:^(id x) {
       NSLog(@"%@", x);
     } error:^(NSError *error) {
@@ -100,6 +105,54 @@ static NSString * const RWTwitterInstantDomain = @"TwitterInstant";
                                                 [subscriber sendCompleted];
                                               }
                                             }];
+    return nil;
+  }];
+}
+
+- (SLRequest *)requestForTwitterSearchWithText:(NSString *)text {
+  NSURL *url = [NSURL URLWithString:@"https://api.twitter.com/1.1/search/tweets.json"];
+  NSDictionary *params = @{@"q": text};
+  
+  SLRequest *request = [SLRequest requestForServiceType:SLServiceTypeTwitter
+                                          requestMethod:SLRequestMethodGET
+                                                    URL:url
+                                             parameters:params];
+  return request;
+}
+
+- (RACSignal *)signalForSearchWithText:(NSString *)text {
+  NSError *noAccountsError = [NSError errorWithDomain:RWTwitterInstantDomain
+                                                 code:RWTwitterInstantErrorNoTwitterAccounts
+                                             userInfo:nil];
+  NSError *invalidResponseError = [NSError errorWithDomain:RWTwitterInstantDomain
+                                                      code:RWTwitterInstantErrorInvalidResponse
+                                                  userInfo:nil];
+  
+  @weakify(self)
+  return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+    @strongify(self);
+    
+    SLRequest *request = [self requestForTwitterSearchWithText:text];
+    
+    NSArray *twitterAccounts = [self.accountStore
+                                accountsWithAccountType:self.twitterAccountType];
+    if (twitterAccounts.count == 0) {
+      [subscriber sendError:noAccountsError];
+    } else {
+      [request setAccount:[twitterAccounts lastObject]];
+      
+      [request performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
+        if (urlResponse.statusCode == 200) {
+          NSDictionary *timelineData = [NSJSONSerialization JSONObjectWithData:responseData
+                                                                       options:NSJSONReadingAllowFragments
+                                                                         error:nil];
+          [subscriber sendNext:timelineData];
+          [subscriber sendCompleted];
+        } else {
+          [subscriber sendError:invalidResponseError];
+        }
+      }];
+    }
     return nil;
   }];
 }
