@@ -8,8 +8,10 @@
 
 #import "RWSearchFormViewController.h"
 #import "RWSearchResultsViewController.h"
-#import <ReactiveCocoa.h>
 #import "RACEXTScope.h"
+#import "RWTweet.h"
+#import "NSArray+linqExtensions.h"
+#import <ReactiveCocoa.h>
 #import <Accounts/Accounts.h>
 #import <Social/Social.h>
 
@@ -54,7 +56,7 @@ static NSString * const RWTwitterInstantDomain = @"TwitterInstant";
   
   self.accountStore = [[ACAccountStore alloc] init];
   self.twitterAccountType = [self.accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
-  
+
   [[[[[[self requestAccessToTwitterSignal]
     then:^RACSignal *{
       @strongify(self)
@@ -69,8 +71,12 @@ static NSString * const RWTwitterInstantDomain = @"TwitterInstant";
       return [self signalForSearchWithText:text];
     }]
     deliverOn:[RACScheduler mainThreadScheduler]]
-    subscribeNext:^(id x) {
-      NSLog(@"%@", x);
+    subscribeNext:^(NSDictionary *jsonSearchResult) {
+      NSArray *statuses = jsonSearchResult[@"statuses"];
+      NSArray *tweets = [statuses linq_select:^id(id tweet) {
+        return [RWTweet tweetWithStatus:tweet];
+      }];
+      [self.resultsViewController displayTweets:tweets];
     } error:^(NSError *error) {
       NSLog(@"An error ocurred: %@", error);
     }];
