@@ -12,6 +12,12 @@
 		F9240EF01995C5CC002E4C43 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9240EEE1995C5CC002E4C43 /* Main.storyboard */; };
 		F9240EF21995C5CD002E4C43 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9240EF11995C5CD002E4C43 /* Images.xcassets */; };
 		F9240EFE1995C5CD002E4C43 /* MonkeyPinchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9240EFD1995C5CD002E4C43 /* MonkeyPinchTests.swift */; };
+		F98CFBD71996DFF300399F06 /* banana.png in Resources */ = {isa = PBXBuildFile; fileRef = F98CFBD11996DFF300399F06 /* banana.png */; };
+		F98CFBD81996DFF300399F06 /* banana@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F98CFBD21996DFF300399F06 /* banana@2x.png */; };
+		F98CFBD91996DFF300399F06 /* chomp.caf in Resources */ = {isa = PBXBuildFile; fileRef = F98CFBD31996DFF300399F06 /* chomp.caf */; };
+		F98CFBDA1996DFF300399F06 /* hehehe1.caf in Resources */ = {isa = PBXBuildFile; fileRef = F98CFBD41996DFF300399F06 /* hehehe1.caf */; };
+		F98CFBDB1996DFF300399F06 /* monkey.png in Resources */ = {isa = PBXBuildFile; fileRef = F98CFBD51996DFF300399F06 /* monkey.png */; };
+		F98CFBDC1996DFF300399F06 /* monkey@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F98CFBD61996DFF300399F06 /* monkey@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +40,12 @@
 		F9240EF71995C5CD002E4C43 /* MonkeyPinchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonkeyPinchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9240EFC1995C5CD002E4C43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F9240EFD1995C5CD002E4C43 /* MonkeyPinchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonkeyPinchTests.swift; sourceTree = "<group>"; };
+		F98CFBD11996DFF300399F06 /* banana.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = banana.png; sourceTree = "<group>"; };
+		F98CFBD21996DFF300399F06 /* banana@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "banana@2x.png"; sourceTree = "<group>"; };
+		F98CFBD31996DFF300399F06 /* chomp.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = chomp.caf; sourceTree = "<group>"; };
+		F98CFBD41996DFF300399F06 /* hehehe1.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = hehehe1.caf; sourceTree = "<group>"; };
+		F98CFBD51996DFF300399F06 /* monkey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = monkey.png; sourceTree = "<group>"; };
+		F98CFBD61996DFF300399F06 /* monkey@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "monkey@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +87,12 @@
 		F9240EE71995C5CC002E4C43 /* MonkeyPinch */ = {
 			isa = PBXGroup;
 			children = (
-				F9240EEA1995C5CC002E4C43 /* AppDelegate.swift */,
+				F98CFBD11996DFF300399F06 /* banana.png */,
+				F98CFBD21996DFF300399F06 /* banana@2x.png */,
+				F98CFBD31996DFF300399F06 /* chomp.caf */,
+				F98CFBD41996DFF300399F06 /* hehehe1.caf */,
+				F98CFBD51996DFF300399F06 /* monkey.png */,
+				F98CFBD61996DFF300399F06 /* monkey@2x.png */,
 				F9240EEC1995C5CC002E4C43 /* ViewController.swift */,
 				F9240EEE1995C5CC002E4C43 /* Main.storyboard */,
 				F9240EF11995C5CD002E4C43 /* Images.xcassets */,
@@ -87,6 +104,7 @@
 		F9240EE81995C5CC002E4C43 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F9240EEA1995C5CC002E4C43 /* AppDelegate.swift */,
 				F9240EE91995C5CC002E4C43 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -189,8 +207,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F98CFBDB1996DFF300399F06 /* monkey.png in Resources */,
 				F9240EF01995C5CC002E4C43 /* Main.storyboard in Resources */,
+				F98CFBDA1996DFF300399F06 /* hehehe1.caf in Resources */,
 				F9240EF21995C5CD002E4C43 /* Images.xcassets in Resources */,
+				F98CFBD71996DFF300399F06 /* banana.png in Resources */,
+				F98CFBDC1996DFF300399F06 /* monkey@2x.png in Resources */,
+				F98CFBD81996DFF300399F06 /* banana@2x.png in Resources */,
+				F98CFBD91996DFF300399F06 /* chomp.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,6 +419,7 @@
 				F9240F031995C5CD002E4C43 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F9240F041995C5CD002E4C43 /* Build configuration list for PBXNativeTarget "MonkeyPinchTests" */ = {
 			isa = XCConfigurationList;
@@ -403,6 +428,7 @@
 				F9240F061995C5CD002E4C43 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

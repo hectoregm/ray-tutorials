@@ -9,3 +9,5 @@
 [ReactiveCocoa Tutorial – The Definitive Introduction: Part 2/2](http://www.raywenderlich.com/62699/reactivecocoa-tutorial-pt2) - TwitterInstant
 
 [How to Make a Narrated Book Using AVSpeechSynthesizer in iOS 7](http://www.raywenderlich.com/64623/make-narrated-book-using-avspeechsynthesizer-ios-7) - NarratedBookUsingAVSpeech
+
+[Using UIGestureRecognizer with Swift Tutorial](http://www.raywenderlich.com/76020/using-uigesturerecognizer-with-swift-tutorial) - MonkeyPinch
