@@ -9,6 +9,8 @@
 #import "RWTBook.h"
 #import "RWTPage.h"
 
+NSString* const RWTBookAttributesKeyBookPages = @"bookPages";
+
 #pragma mark - Class Extension
 
 @interface RWTBook ()
@@ -41,6 +43,25 @@
                                                     [UIImage imageNamed:@"PageBackgroundImage.jpg"] }];
 
   return [self bookWithPages:@[page1, page2]];
+}
+
+#pragma mark - Private
++ (instancetype)bookWithContentsOfFile:(NSString *)path
+{
+  NSDictionary *bookAttributes = [NSDictionary dictionaryWithContentsOfFile:path];
+  if (!bookAttributes) {
+    return nil;
+  }
+  
+  NSMutableArray *pages = [NSMutableArray arrayWithCapacity:2];
+  for (NSDictionary *pageAttributes in [bookAttributes objectForKey:RWTBookAttributesKeyBookPages]) {
+    RWTPage *page = [RWTPage pageWithAttributes:pageAttributes];
+    if (page) {
+      [pages addObject:page];
+    }
+  }
+  
+  return [self bookWithPages:pages];
 }
 
 @end

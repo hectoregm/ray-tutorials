@@ -13,6 +13,7 @@
 @property (nonatomic, copy, readonly) NSArray *pages;
 
 + (instancetype)bookWithPages:(NSArray*)pages;
++ (instancetype)bookWithContentsOfFile:(NSString *)path;
 + (instancetype)testBook;
 
 @end

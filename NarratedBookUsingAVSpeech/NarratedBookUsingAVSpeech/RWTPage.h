@@ -14,6 +14,7 @@ extern NSString* const RWTPageAttributesKeyBackgroundImage;
 @interface RWTPage : NSObject
 
 @property (nonatomic, strong, readonly) NSString *displayText;
+@property (nonatomic, strong, readonly) NSArray *utterances;
 @property (nonatomic, strong, readonly) UIImage *backgroundImage;
 
 + (instancetype)pageWithAttributes:(NSDictionary*)attributes;

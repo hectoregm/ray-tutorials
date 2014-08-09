@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+@import  AVFoundation;
 
-@interface RWTPageViewController : UIViewController
+@interface RWTPageViewController : UIViewController<AVSpeechSynthesizerDelegate>
 
 @property (nonatomic, weak) IBOutlet UILabel *pageTextLabel;
 @property (nonatomic, weak) IBOutlet UIImageView *pageImageView;
