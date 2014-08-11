@@ -41,5 +41,15 @@ class ViewController: UIViewController {
         completion: nil)
     }
   }
+  
+  @IBAction func handlePinch(recognizer: UIPinchGestureRecognizer) {
+    recognizer.view.transform = CGAffineTransformScale(recognizer.view.transform, recognizer.scale, recognizer.scale)
+    recognizer.scale = 1
+  }
+  
+  @IBAction func handleRotate(recognizer: UIRotationGestureRecognizer) {
+    recognizer.view.transform = CGAffineTransformRotate(recognizer.view.transform, recognizer.rotation)
+    recognizer.rotation = 0
+  }
 }
 

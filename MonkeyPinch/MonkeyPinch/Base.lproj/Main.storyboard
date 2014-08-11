@@ -21,6 +21,8 @@
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="23g-W0-l7g" appends="YES" id="MHD-TB-1VW"/>
+                                    <outletCollection property="gestureRecognizers" destination="A9B-bJ-qr9" appends="YES" id="xIN-PF-Na1"/>
+                                    <outletCollection property="gestureRecognizers" destination="p1a-G7-rbj" appends="YES" id="qIO-tB-RTW"/>
                                 </connections>
                             </imageView>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="banana.png" translatesAutoresizingMaskIntoConstraints="NO" id="ala-To-NnV">
@@ -28,6 +30,8 @@
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="ywZ-hW-axr" appends="YES" id="nmV-O9-cMQ"/>
+                                    <outletCollection property="gestureRecognizers" destination="lEM-kq-UQi" appends="YES" id="OFn-bW-ifA"/>
+                                    <outletCollection property="gestureRecognizers" destination="By9-fI-h1V" appends="YES" id="zaV-ch-JRu"/>
                                 </connections>
                             </imageView>
                         </subviews>
@@ -45,6 +49,26 @@
                         <action selector="handlePan:" destination="vXZ-lx-hvc" id="pHA-bF-J49"/>
                     </connections>
                 </panGestureRecognizer>
+                <pinchGestureRecognizer id="A9B-bJ-qr9">
+                    <connections>
+                        <action selector="handlePinch:" destination="vXZ-lx-hvc" id="thO-co-MaV"/>
+                    </connections>
+                </pinchGestureRecognizer>
+                <rotationGestureRecognizer id="p1a-G7-rbj">
+                    <connections>
+                        <action selector="handleRotate:" destination="vXZ-lx-hvc" id="oat-ld-FPd"/>
+                    </connections>
+                </rotationGestureRecognizer>
+                <pinchGestureRecognizer id="lEM-kq-UQi">
+                    <connections>
+                        <action selector="handlePinch:" destination="vXZ-lx-hvc" id="NoN-i9-42S"/>
+                    </connections>
+                </pinchGestureRecognizer>
+                <rotationGestureRecognizer id="By9-fI-h1V">
+                    <connections>
+                        <action selector="handleRotate:" destination="vXZ-lx-hvc" id="aoa-9R-brJ"/>
+                    </connections>
+                </rotationGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="373.33333333333331" y="212.05333333333334"/>
         </scene>
