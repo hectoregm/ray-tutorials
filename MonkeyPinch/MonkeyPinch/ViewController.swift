@@ -7,12 +7,38 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController, UIGestureRecognizerDelegate {
+  var chompPlayer: AVAudioPlayer? = nil
+  
+  func loadSound(filename: NSString) -> AVAudioPlayer {
+    let url = NSBundle.mainBundle().URLForResource(filename, withExtension: "caf")
+    var error: NSError? = nil
+    let player = AVAudioPlayer(contentsOfURL: url, error: &error)
+    if player == nil {
+      println("Error loading \(url): \(error?.localizedDescription)")
+    } else {
+      player.prepareToPlay()
+    }
+    
+    return player
+  }
                             
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    let filteredSubviews = self.view.subviews.filter {
+      $0.isKindOfClass(UIImageView)
+    }
+    
+    for view in filteredSubviews {
+      let recognizer = UITapGestureRecognizer(target:self, action:Selector("handleTap:"))
+      
+      recognizer.delegate = self
+      view.addGestureRecognizer(recognizer)
+    }
+    self.chompPlayer = self.loadSound("chomp")
   }
 
   @IBAction func handlePan(recognizer:UIPanGestureRecognizer) {
@@ -54,6 +80,10 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
   
   func gestureRecognizer(gestureRecognizer: UIGestureRecognizer!, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer!) -> Bool {
     return true
+  }
+  
+  func handleTap(recognizer: UITapGestureRecognizer) {
+    self.chompPlayer?.play()
   }
 }
 
