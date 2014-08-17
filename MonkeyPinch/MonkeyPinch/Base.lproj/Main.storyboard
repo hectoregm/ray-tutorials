@@ -37,6 +37,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="bananaPan" destination="ywZ-hW-axr" id="S9b-GH-gbo"/>
+                        <outlet property="monkeyPan" destination="23g-W0-l7g" id="YJ7-rT-VQG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="23g-W0-l7g">
@@ -48,31 +52,26 @@
                 <panGestureRecognizer minimumNumberOfTouches="1" id="ywZ-hW-axr">
                     <connections>
                         <action selector="handlePan:" destination="vXZ-lx-hvc" id="pHA-bF-J49"/>
-                        <outlet property="delegate" destination="vXZ-lx-hvc" id="XV1-9H-igN"/>
                     </connections>
                 </panGestureRecognizer>
                 <pinchGestureRecognizer id="A9B-bJ-qr9">
                     <connections>
                         <action selector="handlePinch:" destination="vXZ-lx-hvc" id="thO-co-MaV"/>
-                        <outlet property="delegate" destination="vXZ-lx-hvc" id="vB2-Vq-5RE"/>
                     </connections>
                 </pinchGestureRecognizer>
                 <rotationGestureRecognizer id="p1a-G7-rbj">
                     <connections>
                         <action selector="handleRotate:" destination="vXZ-lx-hvc" id="oat-ld-FPd"/>
-                        <outlet property="delegate" destination="vXZ-lx-hvc" id="6tc-Tj-LgP"/>
                     </connections>
                 </rotationGestureRecognizer>
                 <pinchGestureRecognizer id="lEM-kq-UQi">
                     <connections>
                         <action selector="handlePinch:" destination="vXZ-lx-hvc" id="NoN-i9-42S"/>
-                        <outlet property="delegate" destination="vXZ-lx-hvc" id="lkk-MN-GRU"/>
                     </connections>
                 </pinchGestureRecognizer>
                 <rotationGestureRecognizer id="By9-fI-h1V">
                     <connections>
                         <action selector="handleRotate:" destination="vXZ-lx-hvc" id="aoa-9R-brJ"/>
-                        <outlet property="delegate" destination="vXZ-lx-hvc" id="KfF-sL-bJu"/>
                     </connections>
                 </rotationGestureRecognizer>
             </objects>
