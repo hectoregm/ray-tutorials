@@ -13,6 +13,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
   @IBOutlet var monkeyPan: UIPanGestureRecognizer!
   @IBOutlet var bananaPan: UIPanGestureRecognizer!
   var chompPlayer: AVAudioPlayer? = nil
+  var hehePlayer: AVAudioPlayer? = nil
   
   func loadSound(filename: NSString) -> AVAudioPlayer {
     let url = NSBundle.mainBundle().URLForResource(filename, withExtension: "caf")
@@ -42,11 +43,19 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
       
       recognizer.requireGestureRecognizerToFail(monkeyPan)
       recognizer.requireGestureRecognizerToFail(bananaPan)
+      
+      let recognizer2 = TickleGestureRecognizer(target: self, action: Selector("handleTickle:"))
+      recognizer2.delegate = self
+      view.addGestureRecognizer(recognizer2)
     }
     self.chompPlayer = self.loadSound("chomp")
+    self.hehePlayer = self.loadSound("hehehe1")
   }
 
   @IBAction func handlePan(recognizer:UIPanGestureRecognizer) {
+    //comment for panning
+    //uncomment for tickling
+    return;
     let translation = recognizer.translationInView(self.view)
     recognizer.view.center = CGPoint(x: recognizer.view.center.x + translation.x,
       y: recognizer.view.center.y + translation.y)
@@ -89,6 +98,10 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
   
   func handleTap(recognizer: UITapGestureRecognizer) {
     self.chompPlayer?.play()
+  }
+  
+  func handleTickle(recognizer:TickleGestureRecognizer) {
+    self.hehePlayer?.play()
   }
 }
 
