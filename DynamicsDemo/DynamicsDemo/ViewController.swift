@@ -19,10 +19,15 @@ class ViewController: UIViewController {
     square.backgroundColor = UIColor.grayColor()
     view.addSubview(square)
     
+    let barrier = UIView(frame: CGRect(x: 0, y: 300, width: 130, height: 20))
+    barrier.backgroundColor = UIColor.redColor()
+    view.addSubview(barrier)
+    
     animator = UIDynamicAnimator(referenceView: view)
     gravity = UIGravityBehavior(items: [square])
     animator.addBehavior(gravity)
-    collision = UICollisionBehavior(items: [square])
+    
+    collision = UICollisionBehavior(items: [square, barrier])
     collision.translatesReferenceBoundsIntoBoundary = true
     animator.addBehavior(collision)
   }
