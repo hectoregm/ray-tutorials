@@ -27,7 +27,8 @@ class ViewController: UIViewController {
     gravity = UIGravityBehavior(items: [square])
     animator.addBehavior(gravity)
     
-    collision = UICollisionBehavior(items: [square, barrier])
+    collision = UICollisionBehavior(items: [square])
+    collision.addBoundaryWithIdentifier("barrier", forPath: UIBezierPath(rect: barrier.frame))
     collision.translatesReferenceBoundsIntoBoundary = true
     animator.addBehavior(collision)
   }
