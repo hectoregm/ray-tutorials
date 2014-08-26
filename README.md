@@ -11,3 +11,5 @@
 [How to Make a Narrated Book Using AVSpeechSynthesizer in iOS 7](http://www.raywenderlich.com/64623/make-narrated-book-using-avspeechsynthesizer-ios-7) - NarratedBookUsingAVSpeech
 
 [Using UIGestureRecognizer with Swift Tutorial](http://www.raywenderlich.com/76020/using-uigesturerecognizer-with-swift-tutorial) - MonkeyPinch
+
+[UIKit Dynamics Tutorial in Swift](http://www.raywenderlich.com/76147/uikit-dynamics-tutorial-swift) - DynamicsDemo
