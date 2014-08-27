@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UICollisionBehaviorDelegate {
   var animator: UIDynamicAnimator!
   var gravity: UIGravityBehavior!
   var collision: UICollisionBehavior!
@@ -30,6 +30,11 @@ class ViewController: UIViewController {
     collision = UICollisionBehavior(items: [square])
     collision.addBoundaryWithIdentifier("barrier", forPath: UIBezierPath(rect: barrier.frame))
     collision.translatesReferenceBoundsIntoBoundary = true
+    
+//    collision.action = {
+//      println("\(NSStringFromCGAffineTransform(square.transform)) \(NSStringFromCGPoint(square.center))")
+//    }
+    collision.collisionDelegate = self
     animator.addBehavior(collision)
   }
 
@@ -38,6 +43,14 @@ class ViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
 
+  func collisionBehavior(behavior: UICollisionBehavior!, beganContactForItem item: UIDynamicItem!, withBoundaryIdentifier identifier: NSCopying!, atPoint p: CGPoint) {
+    println("Boundary contact occurred - \(identifier)")
+    let collidingView = item as UIView
+    collidingView.backgroundColor = UIColor.yellowColor()
+    UIView.animateWithDuration(0.3) {
+      collidingView.backgroundColor = UIColor.grayColor()
+    }
+  }
 
 }
 
