@@ -31,11 +31,28 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
     collision.addBoundaryWithIdentifier("barrier", forPath: UIBezierPath(rect: barrier.frame))
     collision.translatesReferenceBoundsIntoBoundary = true
     
-//    collision.action = {
-//      println("\(NSStringFromCGAffineTransform(square.transform)) \(NSStringFromCGPoint(square.center))")
-//    }
+    var updateCount = 0
+    collision.action = {
+      if (updateCount % 3 == 0) {
+        let outline = UIView(frame: square.bounds)
+        outline.transform = square.transform
+        outline.center = square.center
+        
+        outline.alpha = 0.5
+        outline.backgroundColor = UIColor.clearColor()
+        outline.layer.borderColor = square.layer.presentationLayer().backgroundColor
+        outline.layer.borderWidth = 1.0
+        self.view.addSubview(outline)
+      }
+      
+      ++updateCount
+    }
     collision.collisionDelegate = self
     animator.addBehavior(collision)
+    
+    let itemBehaviour = UIDynamicItemBehavior(items: [square])
+    itemBehaviour.elasticity = 0.6
+    animator.addBehavior(itemBehaviour)
   }
 
   override func didReceiveMemoryWarning() {
