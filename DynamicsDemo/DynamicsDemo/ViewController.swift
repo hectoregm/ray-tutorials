@@ -12,6 +12,7 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
   var animator: UIDynamicAnimator!
   var gravity: UIGravityBehavior!
   var collision: UICollisionBehavior!
+  var firstContact = false
                             
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -66,6 +67,20 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
     collidingView.backgroundColor = UIColor.yellowColor()
     UIView.animateWithDuration(0.3) {
       collidingView.backgroundColor = UIColor.grayColor()
+    }
+    
+    if (!firstContact) {
+      firstContact = true
+      
+      let square = UIView(frame: CGRect(x: 30, y: 0, width: 100, height: 100))
+      square.backgroundColor = UIColor.grayColor()
+      view.addSubview(square)
+      
+      collision.addItem(square)
+      gravity.addItem(square)
+      
+      let attach = UIAttachmentBehavior(item: collidingView, attachedToItem: square)
+      animator.addBehavior(attach)
     }
   }
 
