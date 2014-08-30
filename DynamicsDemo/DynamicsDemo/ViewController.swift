@@ -12,11 +12,12 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
   var animator: UIDynamicAnimator!
   var gravity: UIGravityBehavior!
   var collision: UICollisionBehavior!
-  var firstContact = false
-                            
+  var square: UIView!
+  var snap: UISnapBehavior!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    let square = UIView(frame: CGRect(x: 100, y: 100, width: 100, height: 100))
+    square = UIView(frame: CGRect(x: 100, y: 100, width: 100, height: 100))
     square.backgroundColor = UIColor.grayColor()
     view.addSubview(square)
     
@@ -35,13 +36,13 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
     var updateCount = 0
     collision.action = {
       if (updateCount % 3 == 0) {
-        let outline = UIView(frame: square.bounds)
-        outline.transform = square.transform
-        outline.center = square.center
+        let outline = UIView(frame: self.square.bounds)
+        outline.transform = self.square.transform
+        outline.center = self.square.center
         
         outline.alpha = 0.5
         outline.backgroundColor = UIColor.clearColor()
-        outline.layer.borderColor = square.layer.presentationLayer().backgroundColor
+        outline.layer.borderColor = self.square.layer.presentationLayer().backgroundColor
         outline.layer.borderWidth = 1.0
         self.view.addSubview(outline)
       }
@@ -68,20 +69,16 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
     UIView.animateWithDuration(0.3) {
       collidingView.backgroundColor = UIColor.grayColor()
     }
-    
-    if (!firstContact) {
-      firstContact = true
-      
-      let square = UIView(frame: CGRect(x: 30, y: 0, width: 100, height: 100))
-      square.backgroundColor = UIColor.grayColor()
-      view.addSubview(square)
-      
-      collision.addItem(square)
-      gravity.addItem(square)
-      
-      let attach = UIAttachmentBehavior(item: collidingView, attachedToItem: square)
-      animator.addBehavior(attach)
+  }
+  
+  override func touchesEnded(touches: NSSet!, withEvent event: UIEvent!) {
+    if (snap != nil) {
+      animator.removeBehavior(snap)
     }
+    
+    let touch = touches.anyObject() as UITouch
+    snap = UISnapBehavior(item: square, snapToPoint: touch.locationInView(view))
+    animator.addBehavior(snap)
   }
 
 }
