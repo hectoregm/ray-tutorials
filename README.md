@@ -13,3 +13,5 @@
 [Using UIGestureRecognizer with Swift Tutorial](http://www.raywenderlich.com/76020/using-uigesturerecognizer-with-swift-tutorial) - MonkeyPinch
 
 [UIKit Dynamics Tutorial in Swift](http://www.raywenderlich.com/76147/uikit-dynamics-tutorial-swift) - DynamicsDemo
+
+[Swift Table View Animations Tutorial: Drop-In Cards](http://www.raywenderlich.com/76024/swift-table-view-animations-tutorial-drop-cards) - CardTilt
