@@ -15,6 +15,7 @@
 		5D7175B3195B7CDE0008F672 /* TeamMembers.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D7175A7195B7CDE0008F672 /* TeamMembers.json */; };
 		5D7175B5195B7D600008F672 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7175B4195B7D600008F672 /* Member.swift */; };
 		5D7175B7195B978C0008F672 /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7175B6195B978C0008F672 /* CardTableViewCell.swift */; };
+		F9385A8019B56D05009B40CB /* TipInCellAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9385A7F19B56D05009B40CB /* TipInCellAnimator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		5D7175A7195B7CDE0008F672 /* TeamMembers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TeamMembers.json; sourceTree = "<group>"; };
 		5D7175B4195B7D600008F672 /* Member.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		5D7175B6195B978C0008F672 /* CardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
+		F9385A7F19B56D05009B40CB /* TipInCellAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipInCellAnimator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 				5D71757D195B7B780008F672 /* AppDelegate.swift */,
 				5D7175B6195B978C0008F672 /* CardTableViewCell.swift */,
 				5D71757F195B7B780008F672 /* MainViewController.swift */,
+				F9385A7F19B56D05009B40CB /* TipInCellAnimator.swift */,
 				5D7175B4195B7D600008F672 /* Member.swift */,
 				5D717583195B7B780008F672 /* Main.storyboard */,
 				5D717586195B7B780008F672 /* Images.xcassets */,
@@ -220,6 +223,7 @@
 			files = (
 				5D717580195B7B780008F672 /* MainViewController.swift in Sources */,
 				5D7175B5195B7D600008F672 /* Member.swift in Sources */,
+				F9385A8019B56D05009B40CB /* TipInCellAnimator.swift in Sources */,
 				5D71757E195B7B780008F672 /* AppDelegate.swift in Sources */,
 				5D7175B7195B978C0008F672 /* CardTableViewCell.swift in Sources */,
 			);
