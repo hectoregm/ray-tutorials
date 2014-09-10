@@ -10,11 +10,10 @@ import UIKit
 
 class TipInCellAnimator {
   class func animate(cell:UITableViewCell) {
-    if let view = cell.contentView {
-      view.layer.opacity = 0.1
-      UIView.animateWithDuration(1.4) {
-        view.layer.opacity = 1
-      }
+    let view = cell.contentView
+    view.layer.opacity = 0.1
+    UIView.animateWithDuration(1.4) {
+      view.layer.opacity = 1
     }
   }
 }

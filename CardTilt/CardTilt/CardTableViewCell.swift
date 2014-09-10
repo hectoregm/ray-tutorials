@@ -36,7 +36,7 @@ class CardTableViewCell: UITableViewCell {
         titleLabel.text = member.title
         locationLabel.text = member.location
         aboutLabel.text = member.about
-        profilePictureView.image = UIImage(named: member.imageName)
+        profilePictureView.image = UIImage(named: member.imageName!)
         
         // Fill the buttons and show or hide them
         webLabel.text = member.web

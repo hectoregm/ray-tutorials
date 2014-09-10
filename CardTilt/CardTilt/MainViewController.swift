@@ -54,7 +54,7 @@ class MainViewController: UITableViewController {
         return false
     }
   
-  override func tableView(tableView: UITableView!, willDisplayCell cell: UITableViewCell!, forRowAtIndexPath indexPath: NSIndexPath!) {
-    TipInCellAnimator.animate(cell)
-  }
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        TipInCellAnimator.animate(cell)
+    }
 }
