@@ -9,7 +9,8 @@
 import UIKit
 
 class MainViewController: UITableViewController {
-
+  
+    var didAnimateCell:[NSIndexPath: Bool] = [:]
     var members:[Member] = []
     
     // #pragma mark - Model
@@ -55,6 +56,9 @@ class MainViewController: UITableViewController {
     }
   
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+      if didAnimateCell[indexPath] == nil || didAnimateCell[indexPath]! == false {
+        didAnimateCell[indexPath] = true
         TipInCellAnimator.animate(cell)
+      }
     }
 }
