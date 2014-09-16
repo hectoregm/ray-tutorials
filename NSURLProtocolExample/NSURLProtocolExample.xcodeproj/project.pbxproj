@@ -13,6 +13,7 @@
 		87C15641196ED7F9001ABCAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87C1563F196ED7F9001ABCAD /* Main.storyboard */; };
 		87C15643196ED7F9001ABCAD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87C15642196ED7F9001ABCAD /* Images.xcassets */; };
 		87C1564F196ED7F9001ABCAD /* NSURLProtocolExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C1564E196ED7F9001ABCAD /* NSURLProtocolExampleTests.swift */; };
+		F96E983B19C7F78A005FD7C3 /* MyURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96E983A19C7F78A005FD7C3 /* MyURLProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		87C15648196ED7F9001ABCAD /* NSURLProtocolExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NSURLProtocolExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		87C1564D196ED7F9001ABCAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87C1564E196ED7F9001ABCAD /* NSURLProtocolExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSURLProtocolExampleTests.swift; sourceTree = "<group>"; };
+		F96E983A19C7F78A005FD7C3 /* MyURLProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyURLProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				87C15642196ED7F9001ABCAD /* Images.xcassets */,
 				87C1563A196ED7F9001ABCAD /* NSURLProtocolExample.xcdatamodeld */,
 				87C15636196ED7F9001ABCAD /* Supporting Files */,
+				F96E983A19C7F78A005FD7C3 /* MyURLProtocol.swift */,
 			);
 			path = NSURLProtocolExample;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				87C1563E196ED7F9001ABCAD /* BrowserViewController.swift in Sources */,
+				F96E983B19C7F78A005FD7C3 /* MyURLProtocol.swift in Sources */,
 				87C15639196ED7F9001ABCAD /* AppDelegate.swift in Sources */,
 				87C1563C196ED7F9001ABCAD /* NSURLProtocolExample.xcdatamodeld in Sources */,
 			);
@@ -401,6 +405,7 @@
 				87C15654196ED7F9001ABCAD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		87C15655196ED7F9001ABCAD /* Build configuration list for PBXNativeTarget "NSURLProtocolExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -409,6 +414,7 @@
 				87C15657196ED7F9001ABCAD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
