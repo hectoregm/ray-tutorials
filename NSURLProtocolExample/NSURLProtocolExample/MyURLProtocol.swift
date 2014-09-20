@@ -15,6 +15,10 @@ class MyURLProtocol: NSURLProtocol {
   
   override class func canInitWithRequest(request: NSURLRequest) -> Bool {
     println("Request #\(requestCount++): URL = \(request.URL.absoluteString)")
+    
+    if NSURLProtocol.propertyForKey("MyURLProtocolHandledKey", inRequest: request) != nil {
+      return false
+    }
     return true
   }
   
@@ -27,7 +31,10 @@ class MyURLProtocol: NSURLProtocol {
   }
   
   override func startLoading() {
-    self.connection = NSURLConnection(request: self.request, delegate: self)
+    var newRequest = self.request.copy() as NSMutableURLRequest
+    NSURLProtocol.setProperty(true, forKey: "MyURLProtocolHandledKey", inRequest: newRequest)
+
+    self.connection = NSURLConnection(request: newRequest, delegate: self)
   }
   
   override func stopLoading() {
@@ -36,5 +43,21 @@ class MyURLProtocol: NSURLProtocol {
     }
     
     self.connection = nil
+  }
+  
+  func connection(connection: NSURLConnection!, didReceiveResponse response: NSURLResponse!) {
+    self.client!.URLProtocol(self, didReceiveResponse: response, cacheStoragePolicy: .NotAllowed)
+  }
+  
+  func connection(connection: NSURLConnection!, didReceiveData data: NSData!) {
+    self.client!.URLProtocol(self, didLoadData: data)
+  }
+  
+  func connectionDidFinishLoading(connection: NSURLConnection!) {
+    self.client!.URLProtocolDidFinishLoading(self)
+  }
+  
+  func connection(connection: NSURLConnection!, didFailWithError error: NSError!) {
+    self.client!.URLProtocol(self, didFailWithError: error)
   }
 }

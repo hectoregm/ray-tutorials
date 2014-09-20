@@ -81,11 +81,11 @@
 			children = (
 				87C15638196ED7F9001ABCAD /* AppDelegate.swift */,
 				87C1563D196ED7F9001ABCAD /* BrowserViewController.swift */,
+				F96E983A19C7F78A005FD7C3 /* MyURLProtocol.swift */,
 				87C1563F196ED7F9001ABCAD /* Main.storyboard */,
 				87C15642196ED7F9001ABCAD /* Images.xcassets */,
 				87C1563A196ED7F9001ABCAD /* NSURLProtocolExample.xcdatamodeld */,
 				87C15636196ED7F9001ABCAD /* Supporting Files */,
-				F96E983A19C7F78A005FD7C3 /* MyURLProtocol.swift */,
 			);
 			path = NSURLProtocolExample;
 			sourceTree = "<group>";
