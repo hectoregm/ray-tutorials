@@ -15,6 +15,7 @@
 		C9666DA5195717D3004CD98B /* FlickrSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9666DA4195717D3004CD98B /* FlickrSearchTests.swift */; };
 		C9666DAF1957185D004CD98B /* Flickr.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9666DAE1957185D004CD98B /* Flickr.swift */; };
 		C9BBAB9319B25CC10040D82F /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BBAB9219B25CC10040D82F /* JSON.swift */; };
+		F990B85519D79A8000B3D711 /* OrderedDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F990B85419D79A8000B3D711 /* OrderedDictionary.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		C9666DA4195717D3004CD98B /* FlickrSearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrSearchTests.swift; sourceTree = "<group>"; };
 		C9666DAE1957185D004CD98B /* Flickr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flickr.swift; sourceTree = "<group>"; };
 		C9BBAB9219B25CC10040D82F /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
+		F990B85419D79A8000B3D711 /* OrderedDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderedDictionary.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 		C9666D8C195717D3004CD98B /* FlickrSearch */ = {
 			isa = PBXGroup;
 			children = (
+				F990B85419D79A8000B3D711 /* OrderedDictionary.swift */,
 				C9666DAE1957185D004CD98B /* Flickr.swift */,
 				C9BBAB9219B25CC10040D82F /* JSON.swift */,
 				C9666D8F195717D3004CD98B /* AppDelegate.swift */,
@@ -220,6 +223,7 @@
 				C9666D94195717D3004CD98B /* DetailViewController.swift in Sources */,
 				C9BBAB9319B25CC10040D82F /* JSON.swift in Sources */,
 				C9666D92195717D3004CD98B /* MasterViewController.swift in Sources */,
+				F990B85519D79A8000B3D711 /* OrderedDictionary.swift in Sources */,
 				C9666DAF1957185D004CD98B /* Flickr.swift in Sources */,
 				C9666D90195717D3004CD98B /* AppDelegate.swift in Sources */,
 			);
