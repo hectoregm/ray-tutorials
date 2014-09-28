@@ -42,6 +42,7 @@
 		C9666DAE1957185D004CD98B /* Flickr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flickr.swift; sourceTree = "<group>"; };
 		C9BBAB9219B25CC10040D82F /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		F990B85419D79A8000B3D711 /* OrderedDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderedDictionary.swift; sourceTree = "<group>"; };
+		F990B85619D89CB800B3D711 /* ODPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ODPlayground.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +93,7 @@
 				C9666D95195717D3004CD98B /* Main.storyboard */,
 				C9666D98195717D3004CD98B /* Images.xcassets */,
 				C9666D8D195717D3004CD98B /* Supporting Files */,
+				F990B85619D89CB800B3D711 /* ODPlayground.playground */,
 			);
 			path = FlickrSearch;
 			sourceTree = "<group>";
