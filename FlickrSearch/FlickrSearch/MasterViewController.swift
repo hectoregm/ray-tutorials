@@ -27,6 +27,8 @@ class MasterViewController: UIViewController {
   @IBOutlet var tableView: UITableView!
   @IBOutlet var searchBar: UISearchBar!
   
+  var searches = OrderedDictionary<String, [Flickr.Photo]>()
+  
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "showDetail" {
     }
@@ -47,11 +49,17 @@ extension MasterViewController: UITableViewDataSource, UITableViewDelegate {
   }
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 0
+    return self.searches.count
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
+    
+    let (term, photos) = self.searches[indexPath.row]
+    
+    if let textLabel = cell.textLabel {
+      textLabel.text = "\(term) (\(photos.count))"
+    }
     return cell
   }
   
@@ -67,6 +75,18 @@ extension MasterViewController: UITableViewDataSource, UITableViewDelegate {
 extension MasterViewController: UISearchBarDelegate {
   
   func searchBarSearchButtonClicked(searchBar: UISearchBar!) {
+    searchBar.resignFirstResponder()
+    
+    let searchTerm = searchBar.text
+    Flickr.search(searchTerm) {
+      switch ($0) {
+      case .Error:
+        break
+      case .Results(let results):
+        self.searches.insert(results, forKey: searchTerm, atIndex: 0)
+        self.tableView.reloadData()
+      }
+    }
   }
   
 }
