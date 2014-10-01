@@ -31,6 +31,10 @@ class MasterViewController: UIViewController {
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "showDetail" {
+      if let indexPath = self.tableView.indexPathForSelectedRow() {
+        let (_,photos) = self.searches[indexPath.row]
+        (segue.destinationViewController as DetailViewController).photos = photos
+      }
     }
   }
   

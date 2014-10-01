@@ -36,7 +36,7 @@ class Flickr {
   class func search(term: String, completion: SearchCompletion) {
     let encodedTerm = (term as NSString).stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
     let searchURLString = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=\(FLICKR_API_KEY)&text=\(encodedTerm)&per_page=20&format=json&nojsoncallback=1"
-    let request = NSURLRequest(URL: NSURL(string: searchURLString))
+    let request = NSURLRequest(URL: NSURL(string: searchURLString)!)
     
     NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) { (response: NSURLResponse!, data: NSData!, error: NSError!) in
       if error != nil {
@@ -114,7 +114,7 @@ class Flickr {
       let size = thumbnail ? "m" : "b"
       
       let photoURLString = "http://farm\(self.farm).staticflickr.com/\(self.server)/\(self.photoID)_\(self.secret)_\(size).jpg"
-      let request = NSURLRequest(URL: NSURL(string: photoURLString))
+      let request = NSURLRequest(URL: NSURL(string: photoURLString)!)
       
       NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) { (response: NSURLResponse!, data: NSData!, error: NSError!) in
         if data != nil {
@@ -124,7 +124,7 @@ class Flickr {
           } else {
             self.image = image
           }
-          completion(result: .Image(image))
+          completion(result: PhotoResult.Image(image!))
         } else {
           completion(result: .Error)
         }
