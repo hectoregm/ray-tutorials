@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6249" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -51,11 +52,39 @@
                             <constraint firstItem="Mjk-vd-Dgw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="0vE-mu-ZRz"/>
                             <constraint firstAttribute="trailing" secondItem="Mjk-vd-Dgw" secondAttribute="trailing" id="5Rq-GC-cYI"/>
                             <constraint firstItem="Ygn-V8-1VS" firstAttribute="height" relation="lessThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.4" id="Hme-an-AiQ"/>
+                            <constraint firstItem="Ygn-V8-1VS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="Ou0-bN-jOb"/>
+                            <constraint firstAttribute="centerY" secondItem="Ygn-V8-1VS" secondAttribute="centerY" id="Ox0-pD-icg"/>
+                            <constraint firstAttribute="width" secondItem="Mjk-vd-Dgw" secondAttribute="width" multiplier="2" id="e7b-Ox-2py"/>
                             <constraint firstAttribute="centerX" secondItem="Ygn-V8-1VS" secondAttribute="centerX" id="fct-Ba-Wpx"/>
                             <constraint firstItem="Mjk-vd-Dgw" firstAttribute="top" secondItem="Ygn-V8-1VS" secondAttribute="bottom" constant="20" id="gYN-wd-akM"/>
                             <constraint firstItem="Ygn-V8-1VS" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="qkb-Ba-4BS"/>
+                            <constraint firstItem="Ygn-V8-1VS" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.45" id="uZb-pX-lzg"/>
+                            <constraint firstItem="Mjk-vd-Dgw" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="yGb-Ad-WNN"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Mjk-vd-Dgw" secondAttribute="bottom" id="yeX-rg-KQc"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Ou0-bN-jOb"/>
+                                <exclude reference="Ox0-pD-icg"/>
+                                <exclude reference="uZb-pX-lzg"/>
+                                <exclude reference="e7b-Ox-2py"/>
+                                <exclude reference="yGb-Ad-WNN"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="constraints">
+                                <exclude reference="Hme-an-AiQ"/>
+                                <include reference="Ou0-bN-jOb"/>
+                                <include reference="Ox0-pD-icg"/>
+                                <exclude reference="fct-Ba-Wpx"/>
+                                <exclude reference="qkb-Ba-4BS"/>
+                                <include reference="uZb-pX-lzg"/>
+                                <exclude reference="0vE-mu-ZRz"/>
+                                <include reference="e7b-Ox-2py"/>
+                                <exclude reference="gYN-wd-akM"/>
+                                <include reference="yGb-Ad-WNN"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
