@@ -23,3 +23,5 @@
 [How To Make an App Like RunKeeper: Part 1](http://www.raywenderlich.com/73984/make-app-like-runkeeper-part-1) - FlickrSearch
 
 [Beginning Adaptive Layout Tutorial](http://www.raywenderlich.com/83276/beginning-adaptive-layout-tutorial) - AdaptiveWeather
+
+[Beginning CloudKit Tutorial](http://www.raywenderlich.com/83116/beginning-cloudkit-tutorial) - BabiFud
