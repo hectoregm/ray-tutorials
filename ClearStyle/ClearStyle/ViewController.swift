@@ -53,7 +53,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
                 as UITableViewCell
             let item = toDoItems[indexPath.row]
-            cell.textLabel.text = item.text
+            cell.textLabel!.text = item.text
             return cell
     }
 
