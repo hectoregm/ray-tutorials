@@ -13,6 +13,7 @@
 		40E84C5F198FB75900AD18D5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40E84C5E198FB75900AD18D5 /* Images.xcassets */; };
 		40E84C6B198FB75900AD18D5 /* ClearStyleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E84C6A198FB75900AD18D5 /* ClearStyleTests.swift */; };
 		40E84C75198FC0BE00AD18D5 /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E84C74198FC0BE00AD18D5 /* ToDoItem.swift */; };
+		F94483831A3277090068D2F5 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94483821A3277080068D2F5 /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		40E84C69198FB75900AD18D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40E84C6A198FB75900AD18D5 /* ClearStyleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearStyleTests.swift; sourceTree = "<group>"; };
 		40E84C74198FC0BE00AD18D5 /* ToDoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
+		F94483821A3277080068D2F5 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				40E84C59198FB75900AD18D5 /* ViewController.swift */,
 				40E84C5B198FB75900AD18D5 /* Main.storyboard */,
 				40E84C74198FC0BE00AD18D5 /* ToDoItem.swift */,
+				F94483821A3277080068D2F5 /* TableViewCell.swift */,
 				40E84C5E198FB75900AD18D5 /* Images.xcassets */,
 				40E84C55198FB75900AD18D5 /* Supporting Files */,
 			);
@@ -212,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				40E84C5A198FB75900AD18D5 /* ViewController.swift in Sources */,
+				F94483831A3277090068D2F5 /* TableViewCell.swift in Sources */,
 				40E84C58198FB75900AD18D5 /* AppDelegate.swift in Sources */,
 				40E84C75198FC0BE00AD18D5 /* ToDoItem.swift in Sources */,
 			);
@@ -399,6 +403,7 @@
 				40E84C70198FB75900AD18D5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		40E84C71198FB75900AD18D5 /* Build configuration list for PBXNativeTarget "ClearStyleTests" */ = {
 			isa = XCConfigurationList;
@@ -407,6 +412,7 @@
 				40E84C73198FB75900AD18D5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
