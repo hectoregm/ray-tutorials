@@ -9,11 +9,17 @@
 import UIKit
 import QuartzCore
 
+protocol TableViewCellDelegate {
+    func toDoItemDeleted(todoItem: ToDoItem)
+}
+
 class TableViewCell: UITableViewCell {
     
     let gradientLayer = CAGradientLayer()
     var originalCenter = CGPoint()
     var deleteOnDragRelease = false
+    var delegate: TableViewCellDelegate?
+    var toDoItem: ToDoItem?
     
     required init(coder aDecoder: NSCoder) {
         fatalError("NSCoding not supported")
@@ -64,6 +70,12 @@ class TableViewCell: UITableViewCell {
             if !deleteOnDragRelease {
                 // if the item is not being deleted, snap back to the original location
                 UIView.animateWithDuration(0.2, animations: { self.frame = originalFrame })
+            }
+            
+            if deleteOnDragRelease {
+                if delegate != nil && toDoItem != nil {
+                    delegate!.toDoItemDeleted(toDoItem!)
+                }
             }
         }
     }
