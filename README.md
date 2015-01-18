@@ -18,8 +18,7 @@
 
 [Using NSURLProtocol with Swift](http://www.raywenderlich.com/76735/using-nsurlprotocol-swift) - NSURLProtocolExample
 
-[Swift Generics Tutorial](http://www.raywenderlich.com/82572/swift-generics-tutorial)
-- FlickrSearch
+[Swift Generics Tutorial](http://www.raywenderlich.com/82572/swift-generics-tutorial) - FlickrSearch
 
 [How To Make an App Like RunKeeper: Part 1](http://www.raywenderlich.com/73984/make-app-like-runkeeper-part-1) - FlickrSearch
 
