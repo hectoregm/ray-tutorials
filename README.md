@@ -16,7 +16,7 @@
 
 [Swift Table View Animations Tutorial: Drop-In Cards](http://www.raywenderlich.com/76024/swift-table-view-animations-tutorial-drop-cards) - CardTilt
 
-[http://www.raywenderlich.com/76735/using-nsurlprotocol-swift](http://www.raywenderlich.com/76735/using-nsurlprotocol-swift) - NSURLProtocolExample
+[Using NSURLProtocol with Swift](http://www.raywenderlich.com/76735/using-nsurlprotocol-swift) - NSURLProtocolExample
 
 [Swift Generics Tutorial](http://www.raywenderlich.com/82572/swift-generics-tutorial)
 - FlickrSearch
