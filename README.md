@@ -20,8 +20,11 @@
 
 [Swift Generics Tutorial](http://www.raywenderlich.com/82572/swift-generics-tutorial)
 - FlickrSearch
+
 [How To Make an App Like RunKeeper: Part 1](http://www.raywenderlich.com/73984/make-app-like-runkeeper-part-1) - FlickrSearch
 
 [Beginning Adaptive Layout Tutorial](http://www.raywenderlich.com/83276/beginning-adaptive-layout-tutorial) - AdaptiveWeather
 
 [Beginning CloudKit Tutorial](http://www.raywenderlich.com/83116/beginning-cloudkit-tutorial) - BabiFud
+
+[User Accounts on iOS with Ruby on Rails and Swift](http://www.raywenderlich.com/85528/user-accounts-ios-ruby-rails-swift#next_section) - Selfie
