@@ -126,6 +126,15 @@ class ViewController: UIViewController {
     if self.signupPasswordTextField.isFirstResponder() {
       self.signupPasswordTextField.resignFirstResponder()
     }
+    
+    self.activityIndicatorView.hidden = false
+    
+    if countElements(self.signupNameTextField.text) > 0 && countElements(self.signupEmailTextField.text) > 0 &&
+        countElements(self.signupPasswordTextField.text) > 0 {
+            makeSignUpRequest(self.signupNameTextField.text, userEmail: self.signupEmailTextField.text, userPassword: self.signupPasswordTextField.text)
+    } else {
+        self.displayAlertMessage("Parameters Required", alertDescription: "Some of the required parameters are missing")
+    }
   }
   
   @IBAction func signinBtnTapped(sender: AnyObject) {
