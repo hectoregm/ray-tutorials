@@ -155,6 +155,24 @@ class ViewController: UIViewController {
   }
   
   func makeSignUpRequest(userName:String, userEmail:String, userPassword:String) {
+    let httpRequest = httpHelper.buildRequest("signup", method: "POST", authType: HTTPRequestAuthType.HTTPBasicAuth)
+    
+    let encrypted_password = AESCrypt.encrypt(userPassword, password: HTTPHelper.API_AUTH_PASSWORD)
+    
+    httpRequest.HTTPBody = "{\"full_name\":\"\(userName)\",\"email\":\"\(userEmail)\",\"password\":\"\(encrypted_password)\"}".dataUsingEncoding(NSUTF8StringEncoding)
+    
+    httpHelper.sendRequest(httpRequest) {
+        (data: NSData!, error: NSError!) in
+        if error != nil {
+            let errorMessage = self.httpHelper.getErrorMessage(error)
+            self.displayAlertMessage("Error", alertDescription: errorMessage)
+            
+            return
+        }
+        
+        self.displaSigninView()
+        self.displayAlertMessage("Success", alertDescription: "Account has been created")
+    }
   }
   
   func makeSignInRequest(userEmail:String, userPassword:String) {   
