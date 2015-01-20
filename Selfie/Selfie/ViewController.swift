@@ -146,12 +146,38 @@ class ViewController: UIViewController {
     if self.signinPasswordTextField.isFirstResponder() {
       self.signinPasswordTextField.resignFirstResponder()
     }
+    
+    self.activityIndicatorView.hidden = false
+    
+    if countElements(self.signinEmailTextField.text) > 0 && countElements(self.signinPasswordTextField.text) > 0 {
+        makeSignInRequest(self.signinEmailTextField.text, userPassword: self.signinPasswordTextField.text)
+    } else {
+        self.displayAlertMessage("Parameters Required", alertDescription: "Some of the required parameters are missing")
+    }
   }
   
   func updateUserLoggedInFlag() {
+    let defaults = NSUserDefaults.standardUserDefaults()
+    defaults.setObject("loggedIn", forKey: "userLoggedIn")
+    defaults.synchronize()
   }
   
   func saveApiTokenInKeychain(tokenDict:NSDictionary) {
+    tokenDict.enumerateKeysAndObjectsUsingBlock {
+        (dictKey, dictObj, stopBool) -> Void in
+        var myKey = dictKey as NSString
+        var myObj = dictObj as NSString
+
+        if myKey == "api_authtoken" {
+            KeychainAccess.setPassword(myObj, account: "Auth_Token", service: "KeyChainService")
+        }
+        
+        if myKey == "authtoken_expiry" {
+            KeychainAccess.setPassword(myObj, account: "Auth_Token_Expiry", service: "KeyChainService")
+        }
+    }
+    
+    self.dismissViewControllerAnimated(true, completion: nil)
   }
   
   func makeSignUpRequest(userName:String, userEmail:String, userPassword:String) {
@@ -175,6 +201,30 @@ class ViewController: UIViewController {
     }
   }
   
-  func makeSignInRequest(userEmail:String, userPassword:String) {   
+  func makeSignInRequest(userEmail:String, userPassword:String) {
+    let httpRequest = httpHelper.buildRequest("signin", method: "POST", authType: HTTPRequestAuthType.HTTPBasicAuth)
+    let encrypted_password = AESCrypt.encrypt(userPassword, password: HTTPHelper.API_AUTH_PASSWORD)
+    
+    httpRequest.HTTPBody = "{\"email\":\"\(self.signinEmailTextField.text)\",\"password\":\"\(encrypted_password)\"}".dataUsingEncoding(NSUTF8StringEncoding)
+    
+    httpHelper.sendRequest(httpRequest) {
+        (data: NSData!, error: NSError!) in
+        if error != nil {
+            let errorMessage = self.httpHelper.getErrorMessage(error)
+            self.displayAlertMessage("Error", alertDescription: errorMessage)
+            
+            return
+        }
+        
+        self.activityIndicatorView.hidden = true
+        self.updateUserLoggedInFlag()
+        
+        var jsonerror: NSError?
+        let responseDict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: &jsonerror) as NSDictionary
+        var stopBool: Bool
+        
+        self.saveApiTokenInKeychain(responseDict)
+    }
+
   }
 }
