@@ -23,6 +23,24 @@ class SelfieCollectionViewController: UICollectionViewController {
     if defaults.objectForKey("userLoggedIn") == nil {
       let loginController: ViewController = self.storyboard?.instantiateViewControllerWithIdentifier("ViewController") as ViewController
       self.navigationController?.presentViewController(loginController, animated: true, completion: nil)
+    } else {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        let userTokenExpiryDate : NSString? = KeychainAccess.passwordForAccount("Auth_Token_Expiry", service: "KeyChainService")
+        let dateFromString: NSDate? = dateFormatter.dateFromString(userTokenExpiryDate!)
+        let now = NSDate()
+        
+        let comparision = now.compare(dateFromString!)
+        
+        if shouldFetchNewData {
+            shouldFetchNewData = false
+            self.setNavigationItems()
+            loadSelfieData()
+        }
+        
+        if comparision != NSComparisonResult.OrderedAscending {
+            self.logoutBtnTapped()
+        }
     }
   }
   
@@ -58,7 +76,36 @@ class SelfieCollectionViewController: UICollectionViewController {
     displayCameraControl()
   }
   
-  func loadSelfieData () {    
+  func loadSelfieData () {
+    let httpRequest = httpHelper.buildRequest("get_photos", method: "GET", authType: HTTPRequestAuthType.HTTPTokenAuth)
+    
+    httpHelper.sendRequest(httpRequest) {
+        data, error in
+        if error != nil {
+            let errorMessage = self.httpHelper.getErrorMessage(error)
+            let errorAlert = UIAlertView(title: "Error", message: errorMessage, delegate: nil, cancelButtonTitle: "OK")
+            errorAlert.show()
+            
+            return
+        }
+        
+        var eror: NSError?
+        let jsonDataArray = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(0), error: &eror) as NSArray!
+        
+        if jsonDataArray != nil {
+            for imageDataDict in jsonDataArray {
+                var selfieImgObj = SelfieImage()
+                
+                selfieImgObj.imageTitle = imageDataDict.valueForKey("title") as NSString
+                selfieImgObj.imageId = imageDataDict.valueForKey("random_id") as NSString
+                selfieImgObj.imageThumbnailURL = imageDataDict.valueForKey("image_url") as NSString
+                
+                self.dataArray.append(selfieImgObj)
+            }
+            
+            self.collectionView?.reloadData()
+        }
+    }
   }
   
   func removeObject<T:Equatable>(inout arr:Array<T>, object:T) -> T? {
@@ -75,6 +122,29 @@ class SelfieCollectionViewController: UICollectionViewController {
   
   override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as SelfieCollectionViewCell
+    
+    var rowIndex = self.dataArray.count - (indexPath.row + 1)
+    var selfieRowObj = self.dataArray[rowIndex] as SelfieImage
+    
+    cell.backgroundColor = UIColor.blackColor()
+    cell.selfieTitle.text = selfieRowObj.imageTitle
+    
+    var imgURL: NSURL = NSURL(string: selfieRowObj.imageThumbnailURL)!
+    
+    let request: NSURLRequest = NSURLRequest(URL: imgURL)
+    NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {
+        response, data, error in
+        if error == nil {
+            var image = UIImage(data: data)
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                cell.selfieImgView.image = image
+            })
+        } else {
+            println("Error: \(error.localizedDescription)")
+        }
+    }
+    
     return cell
   }
   
