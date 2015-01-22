@@ -177,14 +177,35 @@ extension SelfieCollectionViewController : UINavigationControllerDelegate, UIIma
     self.presentViewController(imagePickerController, animated: true, completion: nil)
   }
   
-  func imagePickerController(picker: UIImagePickerController!, didFinishPickingMediaWithInfo info: NSDictionary!) {    
+  func imagePickerController(picker: UIImagePickerController!, didFinishPickingMediaWithInfo info: NSDictionary!) {
+    self.dismissViewControllerAnimated(true, completion: nil)
+    
+    var image: UIImage!
+    
+    if picker.allowsEditing {
+        image = info.objectForKey(UIImagePickerControllerEditedImage) as UIImage
+    } else {
+        image = info.objectForKey(UIImagePickerControllerOriginalImage) as UIImage
+    }
+    
+    presentComposeViewControllerWithImage(image)
   }
 }
 
 // Compose Selfie Extension
 
 extension SelfieCollectionViewController : SelfieComposeDelegate {
-  func presentComposeViewControllerWithImage(image:UIImage!) {    
+  func presentComposeViewControllerWithImage(image:UIImage!) {
+    // instantiate compose view controller to capture a caption
+    let composeVC: ComposeViewController = self.storyboard?.instantiateViewControllerWithIdentifier("ComposeViewController") as ComposeViewController
+    composeVC.composeDelegate = self
+    composeVC.thumbImg = image
+    
+    // set the navigation controller of compose view controlle
+    let composeNavVC = UINavigationController(rootViewController: composeVC)
+    
+    // present compose view controller
+    self.navigationController?.presentViewController(composeNavVC, animated: true, completion: nil)
   }
   
   func reloadCollectionViewWithSelfie(selfieImgObject: SelfieImage) {
