@@ -22,7 +22,14 @@ class ComposeViewController: UIViewController {
   let httpHelper = HTTPHelper()
   
   override func viewDidLoad() {
-    super.viewDidLoad()    
+    super.viewDidLoad()
+    
+    self.titleTextView.becomeFirstResponder()
+    self.thumbImgView.image = thumbImg
+    self.automaticallyAdjustsScrollViewInsets = false
+    self.activityIndicatorView.layer.cornerRadius = 10
+    
+    setNavigationItems()
   }
   
   func setNavigationItems() {
@@ -47,6 +54,34 @@ class ComposeViewController: UIViewController {
   }
   
   func postBtnTapped() {
+    self.titleTextView.resignFirstResponder()
+    self.activityIndicatorView.hidden = false
+    
+    var imgData : NSData = UIImagePNGRepresentation(thumbImg)
+    let httpRequest = httpHelper.uploadRequest("upload_photo", data: imgData, title: self.titleTextView.text)
+    
+    httpHelper.sendRequest(httpRequest) {
+        data, error in
+        if error != nil {
+            let errorMessage = self.httpHelper.getErrorMessage(error)
+            self.displayAlertMessage("Error", alertDescription: errorMessage)
+            
+            return
+        }
+        
+        var eror: NSError?
+        let jsonDataDict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(0), error: &eror) as NSDictionary
+        
+        var selfieImgObjNew = SelfieImage()
+        
+        selfieImgObjNew.imageTitle = jsonDataDict.valueForKey("title") as NSString
+        selfieImgObjNew.imageId = jsonDataDict.valueForKey("random_id") as NSString
+        selfieImgObjNew.imageThumbnailURL = jsonDataDict.valueForKey("image_url") as NSString
+        
+        self.composeDelegate.reloadCollectionViewWithSelfie(selfieImgObjNew)
+        self.activityIndicatorView.hidden = true
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
   }
   
   override func didReceiveMemoryWarning() {

@@ -209,6 +209,8 @@ extension SelfieCollectionViewController : SelfieComposeDelegate {
   }
   
   func reloadCollectionViewWithSelfie(selfieImgObject: SelfieImage) {
+    self.dataArray.append(selfieImgObject)
+    self.collectionView?.reloadData()
   }
 }
 

@@ -213,10 +213,11 @@
 				TargetAttributes = {
 					D37383DE19B07A75008C2DB6 = {
 						CreatedOnToolsVersion = 6.0;
-						DevelopmentTeam = DWEEU446VX;
+						DevelopmentTeam = C3SZW2UQ2J;
 					};
 					D37383F019B07A75008C2DB6 = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = C3SZW2UQ2J;
 						TestTargetID = D37383DE19B07A75008C2DB6;
 					};
 				};
