@@ -109,6 +109,10 @@ class SelfieCollectionViewController: UICollectionViewController {
   }
   
   func removeObject<T:Equatable>(inout arr:Array<T>, object:T) -> T? {
+    if let indexOfObject = find(arr, object) {
+        return arr.removeAtIndex(indexOfObject)
+    }
+    
     return nil
   }
   
@@ -151,6 +155,10 @@ class SelfieCollectionViewController: UICollectionViewController {
   // MARK: UICollectionViewDelegate
   
   override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    var rowIndex = self.dataArray.count - (indexPath.row + 1)
+    var selfieRowObj = self.dataArray[rowIndex] as SelfieImage
+    
+    pushDetailsViewControllerWithSelfieObject(selfieRowObj)
   }
 }
 
@@ -218,8 +226,17 @@ extension SelfieCollectionViewController : SelfieComposeDelegate {
 
 extension SelfieCollectionViewController : SelfieEditDelegate {
   func pushDetailsViewControllerWithSelfieObject(selfieRowObj:SelfieImage!) {
+    let detailVC = self.storyboard?.instantiateViewControllerWithIdentifier("DetailViewController") as DetailViewController
+    detailVC.editDelegate = self
+    detailVC.selfieCustomObj = selfieRowObj
+    
+    self.navigationController?.pushViewController(detailVC, animated: true)
   }
   
-  func deleteSelfieObjectFromList(selfieImgObject: SelfieImage) {    
+  func deleteSelfieObjectFromList(selfieImgObject: SelfieImage) {
+    if contains(self.dataArray, selfieImgObject) {
+        removeObject(&self.dataArray, object: selfieImgObject)
+        self.collectionView?.reloadData()
+    }
   }
 }

@@ -23,6 +23,25 @@ class DetailViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    self.activityIndicatorView.layer.cornerRadius = 10
+    self.detailTitleLbl.text = self.selfieCustomObj.imageTitle
+    var imgURL = NSURL(string: self.selfieCustomObj.imageThumbnailURL)
+    
+    let request = NSURLRequest(URL: imgURL!)
+    
+    NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {
+        response, data, error in
+        if error == nil {
+            var image = UIImage(data: data)
+
+            dispatch_async(dispatch_get_main_queue(), {
+                self.detailThumbImgView.image = image
+            })
+        } else {
+            println("Error: \(error.localizedDescription)")
+        }
+    }
   }
   
   override func didReceiveMemoryWarning() {
@@ -38,5 +57,23 @@ class DetailViewController: UIViewController {
   }
   
   @IBAction func deleteBtnTapped(sender: AnyObject) {
+    self.activityIndicatorView.hidden = false
+    
+    let httpRequest = httpHelper.buildRequest("delete_photo", method: "DELETE", authType: HTTPRequestAuthType.HTTPTokenAuth)
+    httpRequest.HTTPBody = "{\"photo_id\":\"\(self.selfieCustomObj.imageId)\"}".dataUsingEncoding(NSUTF8StringEncoding);
+    
+    httpHelper.sendRequest(httpRequest) {
+        data, error in
+        if error != nil {
+            let errorMessage = self.httpHelper.getErrorMessage(error)
+            self.displayAlertMessage("Error", alertDescription: errorMessage)
+            
+            return
+        }
+        
+        self.editDelegate.deleteSelfieObjectFromList(self.selfieCustomObj)
+        self.activityIndicatorView.hidden = true
+        self.navigationController?.popViewControllerAnimated(true)
+    }
   }
 }
