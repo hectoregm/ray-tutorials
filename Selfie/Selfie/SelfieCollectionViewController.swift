@@ -59,17 +59,35 @@ class SelfieCollectionViewController: UICollectionViewController {
   
   // 1. Clears the NSUserDefaults flag
   func clearLoggedinFlagInUserDefaults() {
+    let defaults = NSUserDefaults.standardUserDefaults()
+    defaults.removeObjectForKey("userLoggedIn")
+    defaults.synchronize()
   }
   
   // 2. Removes the data array
   func clearDataArrayAndReloadCollectionView() {
+    self.dataArray.removeAll(keepCapacity: true)
+    self.collectionView?.reloadData()
   }
   
   // 3. Clears API Auth token from Keychain
-  func clearAPITokensFromKeyChain () {    
+  func clearAPITokensFromKeyChain () {
+    if let userToken = KeychainAccess.passwordForAccount("Auth_Token", service: "KeyChainService") {
+        KeychainAccess.deletePasswordForAccount(userToken, account: "AuthToken", service: "KeyChainService")
+    }
+    
+    if let userTokenExpiryDate = KeychainAccess.passwordForAccount("Auth_Token_Expiry", service: "KeyChainService") {
+        KeychainAccess.deletePasswordForAccount(userTokenExpiryDate, account: "Auth_Token_Expiry", service: "KeyChainService")
+    }
   }
   
   func logoutBtnTapped() {
+    clearLoggedinFlagInUserDefaults()
+    clearDataArrayAndReloadCollectionView()
+    clearAPITokensFromKeyChain()
+    
+    shouldFetchNewData = true
+    self.viewDidAppear(true)
   }
   
   func cameraBtnTapped() {
