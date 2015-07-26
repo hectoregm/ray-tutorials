@@ -15,6 +15,10 @@
 		041EDBE51A625CED00ECDA48 /* LoveInASnapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041EDBE41A625CED00ECDA48 /* LoveInASnapTests.swift */; };
 		041EDBF01A625D9200ECDA48 /* Envelope.png in Resources */ = {isa = PBXBuildFile; fileRef = 041EDBEE1A625D9200ECDA48 /* Envelope.png */; };
 		041EDBF11A625D9200ECDA48 /* Swap.png in Resources */ = {isa = PBXBuildFile; fileRef = 041EDBEF1A625D9200ECDA48 /* Swap.png */; };
+		F92FF19F1B65641400ABC1E6 /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F92FF19E1B65641400ABC1E6 /* TesseractOCR.framework */; };
+		F92FF1A11B65646D00ABC1E6 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = F92FF1A01B65646D00ABC1E6 /* tessdata */; };
+		F92FF1A31B6564A200ABC1E6 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F92FF1A21B6564A200ABC1E6 /* libstdc++.dylib */; };
+		F92FF1A51B6564AF00ABC1E6 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F92FF1A41B6564AF00ABC1E6 /* CoreImage.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +44,11 @@
 		041EDBE41A625CED00ECDA48 /* LoveInASnapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveInASnapTests.swift; sourceTree = "<group>"; };
 		041EDBEE1A625D9200ECDA48 /* Envelope.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Envelope.png; sourceTree = "<group>"; };
 		041EDBEF1A625D9200ECDA48 /* Swap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Swap.png; sourceTree = "<group>"; };
+		F92FF19E1B65641400ABC1E6 /* TesseractOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TesseractOCR.framework; sourceTree = "<group>"; };
+		F92FF1A01B65646D00ABC1E6 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
+		F92FF1A21B6564A200ABC1E6 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
+		F92FF1A41B6564AF00ABC1E6 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		F92FF1A61B65655C00ABC1E6 /* LoveInASnap-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LoveInASnap-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +56,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F92FF1A51B6564AF00ABC1E6 /* CoreImage.framework in Frameworks */,
+				F92FF1A31B6564A200ABC1E6 /* libstdc++.dylib in Frameworks */,
+				F92FF19F1B65641400ABC1E6 /* TesseractOCR.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +75,8 @@
 		041EDBC01A625CEC00ECDA48 = {
 			isa = PBXGroup;
 			children = (
+				F92FF1A41B6564AF00ABC1E6 /* CoreImage.framework */,
+				F92FF1A21B6564A200ABC1E6 /* libstdc++.dylib */,
 				041EDBCB1A625CEC00ECDA48 /* LoveInASnap */,
 				041EDBE11A625CED00ECDA48 /* LoveInASnapTests */,
 				041EDBCA1A625CEC00ECDA48 /* Products */,
@@ -88,7 +102,9 @@
 				041EDBD21A625CEC00ECDA48 /* Main.storyboard */,
 				041EDBD51A625CEC00ECDA48 /* Images.xcassets */,
 				041EDBD71A625CEC00ECDA48 /* LaunchScreen.xib */,
+				F92FF19E1B65641400ABC1E6 /* TesseractOCR.framework */,
 				041EDBCC1A625CEC00ECDA48 /* Supporting Files */,
+				F92FF1A61B65655C00ABC1E6 /* LoveInASnap-Bridging-Header.h */,
 			);
 			path = LoveInASnap;
 			sourceTree = "<group>";
@@ -96,6 +112,7 @@
 		041EDBCC1A625CEC00ECDA48 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F92FF1A01B65646D00ABC1E6 /* tessdata */,
 				041EDBEE1A625D9200ECDA48 /* Envelope.png */,
 				041EDBEF1A625D9200ECDA48 /* Swap.png */,
 				041EDBCD1A625CEC00ECDA48 /* Info.plist */,
@@ -205,6 +222,7 @@
 				041EDBF11A625D9200ECDA48 /* Swap.png in Resources */,
 				041EDBD91A625CEC00ECDA48 /* LaunchScreen.xib in Resources */,
 				041EDBD61A625CEC00ECDA48 /* Images.xcassets in Resources */,
+				F92FF1A11B65646D00ABC1E6 /* tessdata in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,9 +364,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LoveInASnap",
+				);
 				INFOPLIST_FILE = LoveInASnap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "LoveInASnap/LoveInASnap-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -356,9 +383,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LoveInASnap",
+				);
 				INFOPLIST_FILE = LoveInASnap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "LoveInASnap/LoveInASnap-Bridging-Header.h";
 			};
 			name = Release;
 		};
