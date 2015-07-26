@@ -27,3 +27,5 @@
 [Beginning CloudKit Tutorial](http://www.raywenderlich.com/83116/beginning-cloudkit-tutorial) - BabiFud
 
 [User Accounts on iOS with Ruby on Rails and Swift](http://www.raywenderlich.com/85528/user-accounts-ios-ruby-rails-swift#next_section) - Selfie
+
+[Tesseract OCR Tutorial](http://www.raywenderlich.com/93276/implementing-tesseract-ocr-ios) - LoveInASnap
